@@ -1,0 +1,36 @@
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ make
+make -C /lib/modules/3.13.0-27-generic/build M=/home/jere/workspaces/eudyptula_challenge/Task01 modules
+make[1]: Entering directory `/usr/src/linux-headers-3.13.0-27-generic'
+  CC [M]  /home/jere/workspaces/eudyptula_challenge/Task01/mod_hw.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/jere/workspaces/eudyptula_challenge/Task01/mod_hw.mod.o
+  LD [M]  /home/jere/workspaces/eudyptula_challenge/Task01/mod_hw.ko
+make[1]: Leaving directory `/usr/src/linux-headers-3.13.0-27-generic'
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ sudo insmod mod_hw.ko 
+[sudo] password for jere: 
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ dmesg | tail
+[151832.424992] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[151832.424995] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[151832.424997] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[151832.425000] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[151832.428113] wlan1: authenticated
+[151832.431067] wlan1: associate with 84:1b:5e:b4:8b:d9 (try 1/3)
+[151832.434788] wlan1: RX AssocResp from 84:1b:5e:b4:8b:d9 (capab=0x411 status=0 aid=7)
+[151832.434847] wlan1: associated
+[151832.711483] systemd-hostnamed[28027]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
+[162630.225816] [LOADING] Hello world!
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ sudo rmmod mod_hw 
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ dmesg | tail
+[151832.424995] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[151832.424997] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[151832.425000] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[151832.428113] wlan1: authenticated
+[151832.431067] wlan1: associate with 84:1b:5e:b4:8b:d9 (try 1/3)
+[151832.434788] wlan1: RX AssocResp from 84:1b:5e:b4:8b:d9 (capab=0x411 status=0 aid=7)
+[151832.434847] wlan1: associated
+[151832.711483] systemd-hostnamed[28027]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
+[162630.225816] [LOADING] Hello world!
+[162651.970897] [UNLOADING] Good bye!
+jere@flux:~/workspaces/eudyptula_challenge/Task01$ 
+

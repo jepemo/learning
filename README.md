@@ -1,7 +1,10 @@
 # mooc
 My MOOC (Massive Online Open Courses) Solutions
 
-- Machine Learning & Deep Learning
+- Machine Learning
   - [(Udacity)Introduction to Machine Learning](/ud120-projects)
 - OS/Distributed Systems
   - [Eudyptula Challenge](/eudyptula-challenge)
+- Other:
+  - [Kaggle](/kaggle)
+  - [HackerRank](/hackerrank)

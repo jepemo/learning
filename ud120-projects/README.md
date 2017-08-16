@@ -1,6 +1,7 @@
 # Intro to Machine Learning (ud120)
 
-- [Naive Bayes](naive-bayes)
+- [Naive Bayes](#naive-bayes)
+- [SVM](#svm)
 
 ## Naive Bayes
 
@@ -18,5 +19,20 @@ score = clf.score(features_test, labels_test)
 # o
 from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(pred, labels_test)
+
+```
+
+## SVM
+
+```python
+from sklearn import svm
+
+clf = svm.SVC()
+clf.fit(features_train, labels_train)
+
+pred = clf.predict(features_test)
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(pred, labels_test)
 
 ```

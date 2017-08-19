@@ -3,7 +3,7 @@
 import sys
 
 def feeOrUpfront(n, k, x, d, p):
-    fee_total = sum([max(k, payment * (1.0 / x))
+    fee_total = sum([max(k, payment * (x / 100.0))
                      for payment in p])
 
     return "fee" if fee_total <= d else "upfront"

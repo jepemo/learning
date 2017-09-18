@@ -1,6 +1,8 @@
 # mooc
 My MOOC (Massive Online Open Courses) Solutions
 
+[Study plan](plan.md)
+
 - Machine Learning
   - [(Udacity)Introduction to Machine Learning](/ud120-projects)
   - [(Coursera)Neural Networks and Deep Learning](/neural-networks-deep-learning)

@@ -7,6 +7,9 @@ https://medium.com/startup-grind/what-every-software-engineer-should-know-about-
 https://github.com/yandexdataschool
 https://github.com/jwasham/coding-interview-university#pick-one-language-for-the-interview
 http://web.stanford.edu/class/cs276/
+
+Emoticons in:
+https://gist.github.com/rxaviers/7360908
 ```
 
 My personal preparation course in the following subjects:

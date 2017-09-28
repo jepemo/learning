@@ -8,6 +8,8 @@ https://github.com/yandexdataschool
 https://github.com/jwasham/coding-interview-university#pick-one-language-for-the-interview
 http://web.stanford.edu/class/cs276/
 https://monkeylearn.com/blog/beginners-guide-text-vectorization/
+
+https://www.reddit.com/r/programming/comments/72r7uq/yahoo_open_sources_its_search_engine_vespa/
 https://www.oath.com/press/open-sourcing-vespa-yahoo-s-big-data-processing-and-serving-eng/
 
 Emoticons in:

@@ -11,6 +11,8 @@ https://monkeylearn.com/blog/beginners-guide-text-vectorization/
 
 https://www.reddit.com/r/programming/comments/72r7uq/yahoo_open_sources_its_search_engine_vespa/
 https://www.oath.com/press/open-sourcing-vespa-yahoo-s-big-data-processing-and-serving-eng/
+https://caitiem.com/2017/09/07/getting-started-with-distributed-systems/
+https://github.com/harpribot/awesome-information-retrieval
 
 Emoticons in:
 https://gist.github.com/rxaviers/7360908

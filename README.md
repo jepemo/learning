@@ -1,7 +1,7 @@
 # mooc
 My MOOC (Massive Online Open Courses) Solutions
 
-[Study plan](plan.md)
+## [Study plan 2017-2018](plan_2017-2018.md)
 
 - Machine Learning
   - [(Udacity)Introduction to Machine Learning](/ud120-projects)

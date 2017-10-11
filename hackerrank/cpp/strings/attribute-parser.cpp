@@ -1,3 +1,5 @@
+#include <cmath>
+#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -56,10 +58,14 @@ vector<string> get_path(vector<string> tree, string query) {
     return path;
 }
 
-int find_pos(vector<string> tree, string attr_name) {
+int find_pos(vector<string> tree, string attr_name, int ini_pos) {
     int pos = -1;
     
-    for (int i=0; i < tree.size(); ++i) {
+    int ipos = ini_pos == -1 ? 0 : ini_pos;
+    
+    for (int i=ipos; i < tree.size(); ++i) {
+        string elem = tree.at(i);
+        //cout << attr_name << "==" << elem << endl;
         if (tree.at(i) == attr_name)
             return i;
     }
@@ -70,22 +76,30 @@ int find_pos(vector<string> tree, string attr_name) {
 string resolve_query(vector<string> tree, string query) {
     vector<string> path = get_path(tree, query);
     
-    int ppos = find_pos(tree, path.at(path.size()-1));
-    if (ppos == -1) {
-        return "Not Found!";
-    }
-    else {
-        return tree.at(ppos+1);
-    }
+    //for (int i=0; i < tree.size(); ++i) cout << tree.at(i) << ", ";
+    //cout << endl;
     
-    /*
-    for (int vpos=0; vpos < tree.size(); ++vpos) {
-        string elem = tree.at(vpos);
+    int ini_pos = -1;
+    for (int p=0; p < path.size(); ++p) {
+        string tag = path.at(p);
+        int ppos = find_pos(tree, path.at(p), ini_pos);
         
-        for
-    }*/
+        //cout << "tag=" << tag << " p=" << p << " - " << "ppos=" << ppos << ", ultim=" << (p == path.size()-1) << endl;
+        if (p == path.size()-1 || ppos == -1) {
+            if (ppos == -1) {
+                return "Not Found!";
+            }
+            else {
+                return tree.at(ppos+1);
+            }
+        }
+        else {
+            ini_pos = ppos;
+            //cout << "ENTRA: ini_pos=" << ini_pos << endl;
+        }
+    }
     
-    //return "Not Found!";
+    return "NO DEURIA";
 }
 
 int main() {

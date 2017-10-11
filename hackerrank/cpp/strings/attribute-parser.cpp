@@ -5,12 +5,14 @@
 #include <algorithm>
 using namespace std;
 
-vector<string> parse_tree(int n) {
-    vector<string> tree;
+vector<vector<string>> parse_tree(int n) {
+    vector<vector<string>> root;
     
     for (int i=0; i < n; ++i) {
         bool end_line = false;
         string input;
+        
+        vector<string> tree;
         
         cin >> input;
         if (input[input.size()-1] == '>')
@@ -34,12 +36,14 @@ vector<string> parse_tree(int n) {
                 tree.push_back(input.substr(0, input.size()));
             }
         }
+        
+        root.push_back(tree);
     }
     
-    return tree;
+    return root;
 }
 
-vector<string> get_path(vector<string> tree, string query) {
+vector<string> get_path(string query) {
     vector<string> path;
     string param = "";
     //cout << query << " " << query.length() << endl;
@@ -58,60 +62,76 @@ vector<string> get_path(vector<string> tree, string query) {
     return path;
 }
 
-int find_pos(vector<string> tree, string attr_name, int ini_pos) {
-    int pos = -1;
+int find_tag(vector<vector<string>> root, string tag_name, int tag_pos) {
+    int pos =  -1;
     
-    int ipos = ini_pos == -1 ? 0 : ini_pos;
+    int ipos = tag_pos == -1 ? 0 : tag_pos;
     
-    for (int i=ipos; i < tree.size(); ++i) {
-        string elem = tree.at(i);
-        //cout << attr_name << "==" << elem << endl;
-        if (tree.at(i) == attr_name)
+    for (int i=ipos; i < root.size(); ++i) {
+        if (tag_name == root.at(i).at(0))
             return i;
     }
     
     return pos;
 }
-
-string resolve_query(vector<string> tree, string query) {
-    vector<string> path = get_path(tree, query);
-    
-    //for (int i=0; i < tree.size(); ++i) cout << tree.at(i) << ", ";
-    //cout << endl;
-    
-    int ini_pos = -1;
-    for (int p=0; p < path.size(); ++p) {
-        string tag = path.at(p);
-        int ppos = find_pos(tree, path.at(p), ini_pos);
-        
-        //cout << "tag=" << tag << " p=" << p << " - " << "ppos=" << ppos << ", ultim=" << (p == path.size()-1) << endl;
-        if (p == path.size()-1 || ppos == -1) {
-            if (ppos == -1) {
-                return "Not Found!";
-            }
-            else {
-                return tree.at(ppos+1);
-            }
-        }
-        else {
-            ini_pos = ppos;
-            //cout << "ENTRA: ini_pos=" << ini_pos << endl;
+string get_atribute(vector<string> attributes, string attr_name) {
+    for (int i=1; i < attributes.size(); ++i) {
+        //cout << attributes.at(i) << "==" << attr_name << endl;
+        if (attributes.at(i) == attr_name) {
+            return attributes.at(i+1);
         }
     }
     
-    return "NO DEURIA";
+    return "";   
+}
+
+string resolve_query(vector<vector<string>> root, string query) {
+    vector<string> path = get_path(query);
+    
+    /*
+    for (int i=0; i < root.size(); ++i) {
+        for (int j=0; j < root.at(i).size(); ++j) {
+            cout << root.at(i).at(j) << ", ";
+        }
+        cout << endl;
+    }
+    */
+    
+    int tag_pos = -1;
+    for (int p=0; p < path.size(); ++p) {
+        string tag = path.at(p);
+        
+        //cout << "1)" << tag << " " << p << endl;
+        if (p < path.size()-1) {
+            tag_pos = find_tag(root, tag, tag_pos);
+            if (tag_pos == -1)
+                return "Not Found!";
+        }
+        else {
+            vector<string> attrs = root.at(tag_pos);
+            string value = get_atribute(attrs, tag);
+            if (value != "") {
+                return value;
+            }
+            else {
+                return "Not Found!";
+            }
+        }
+    }
+    
+    return "Error!!!";
 }
 
 int main() {
     int n, q;
     cin >> n >> q;
     
-    vector<string> tree = parse_tree(n);
+    vector<vector<string>> root = parse_tree(n);
     
     string query;
     for (int i=0; i < q; ++i) {
         cin >> query;
-        cout << resolve_query(tree, query) << endl;
+        cout << resolve_query(root, query) << endl;
     }
     
     return 0;

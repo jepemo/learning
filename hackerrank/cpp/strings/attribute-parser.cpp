@@ -69,7 +69,7 @@ int find_tag(vector<vector<string>> root, string tag_name, int tag_pos) {
     
     for (int i=ipos; i < root.size(); ++i) {
         if (tag_name == root.at(i).at(0))
-            return i;
+            return i == tag_pos+1 ? i : -1;
     }
     
     return pos;
@@ -136,3 +136,40 @@ int main() {
     
     return 0;
 }
+
+/*
+INPUT:
+10 10
+<a value = "GoodVal">
+<b value = "BadVal" size = "10">
+</b>
+<c height = "auto">
+<d size = "3">
+<e strength = "2">
+</e>
+</d>
+</c>
+</a>
+a~value
+b~value
+a.b~size
+a.b~value
+a.b.c~height
+a.c~height
+a.d.e~strength
+a.c.d.e~strength
+d~sze
+a.c.d~size
+
+OUTPUT:
+GoodVal
+Not Found!
+10
+BadVal
+Not Found!
+auto
+Not Found!
+2
+Not Found!
+3
+*/

@@ -173,3 +173,117 @@ Not Found!
 Not Found!
 3
 */
+
+/*
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Attribute {
+    public:
+        string name;
+        string value;
+};
+
+class Tag {
+    public:
+        string name;
+        vector<Tag> children;
+        vector<Attribute> attributes;
+    
+        Tag find_child(string name) {
+            Tag empty;
+            empty.name = "";
+            
+            for (int i=0; i < children.size(); ++i) {
+                Tag tag = children.at(i);
+                if (tag.name == name)
+                    return tag;
+            }
+            
+            return empty;
+        }
+    
+        void add_attribute(string name, string value) {
+            Attribute attr;
+            attr.name = name;
+            attr.value = value;
+            attributes.push_back(attr);
+        }
+    
+        Attribute find_attribute(string name) {
+            Attribute empty;
+            empty.name = "";
+            
+            for (int i=0; i < attributes.size(); ++i) {
+                Attribute attr = attributes.at(i);
+                if (attr.name == name)
+                    return attr;
+            }
+            
+            return empty;
+        }
+};
+
+
+
+vector<Tag> parse_tags(int n) {
+    vector<Tag> tags;
+    
+    for (int i=0; i < n; ++i) {
+        bool end_line = false;
+        string input;
+        
+        Tag t;
+        
+        cin >> input;
+        if (input[input.size()-1] == '>')
+            continue;
+        
+        tree.push_back(input.substr(1));
+        
+        while (!end_line) {
+            cin >> input;
+            if (input[input.size()-1] == '>') {
+                tree.push_back(input.substr(1, input.size()-3));
+                end_line = true;
+            }
+            else if (input == "=") {
+                continue;
+            }
+            else if (input[0] == '"') {
+                tree.push_back(input.substr(1, input.size()-2));
+            }
+            else {
+                tree.push_back(input.substr(0, input.size()));
+            }
+        }
+        
+        root.push_back(tree);
+    }
+    
+    return tags;
+}
+
+
+string parse_query(vector<Tag> tags, string query) {
+    return "";
+}
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+    vector<Tag> tags = parse_tags(n);
+    
+    string query;
+    for(int i=0; i < q; ++i) {
+        cin >> query;
+        cout << parse_query(tags, query);
+    }
+    
+    return 0;
+}
+*/

@@ -161,5 +161,7 @@ Prerequisites
 .tmp_versions/
 modules.order
 Module.symvers
+udemy/Python_for_Finance/venv
 Mkfile.old
 dkms.conf
+udemy/Python_for_Finance/venv

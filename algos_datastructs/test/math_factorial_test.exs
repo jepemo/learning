@@ -3,6 +3,8 @@ defmodule AEDTest.Math do
   doctest AED.Math
 
   test "greets the world" do
+    assert AED.Math.factorial(-1000) == 1
+    assert AED.Math.factorial(-1) == 1
     assert AED.Math.factorial(0) == 1
     assert AED.Math.factorial(1) == 1
     assert AED.Math.factorial(5) == 120

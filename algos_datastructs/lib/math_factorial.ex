@@ -1,5 +1,5 @@
 defmodule AED.Math do
-    def factorial(0) do
+    def factorial(number) when number <= 0 do
         1
     end
     def factorial(number) do

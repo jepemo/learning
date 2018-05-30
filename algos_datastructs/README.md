@@ -5,11 +5,14 @@ Implementation (for learning purposes) of the most used algorithms and data stru
 # Data structures
 
 - [x] [Linked List](lib/ds_singlelinkedlist1.ex)
-- [ ] Queue
+- [x] [Queue](lib/ds_queue.ex)
+- [ ] Stack
+- [ ] Hashtable
+- [ ] Heap
 
 # Algorithms
 ## Math
   - [x] [Factorial](lib/math_factorial.ex)
-  - [ ] Fibonacci
+  - [x] [Fibonacci](lib/math_fibonacci.ex)
 
 Inspiration: https://github.com/trekhleb/javascript-algorithms

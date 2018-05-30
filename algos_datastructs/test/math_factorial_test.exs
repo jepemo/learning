@@ -2,7 +2,7 @@ defmodule AEDTest.Math do
   use ExUnit.Case
   doctest AED.Math
 
-  test "greets the world" do
+  test "Factorial tests" do
     assert AED.Math.factorial(-1000) == 1
     assert AED.Math.factorial(-1) == 1
     assert AED.Math.factorial(0) == 1

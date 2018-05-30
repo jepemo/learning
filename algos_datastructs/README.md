@@ -4,7 +4,7 @@ Implementation (for learning purposes) of the most used algorithms and data stru
 
 # Data structures
 
-- [x] Linked List (lib/ds_singlelinkedlist1.ex)
+- [x] [Linked List](lib/ds_singlelinkedlist1.ex)
 - [ ] Queue
 
 # Algorithms

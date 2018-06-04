@@ -15,4 +15,12 @@ Implementation (for learning purposes) of the most used algorithms and data stru
   - [x] [Factorial](lib/math_factorial.ex)
   - [x] [Fibonacci](lib/math_fibonacci.ex)
 
+## Sorting
+  - [ ] Bubble Sort
+  - [ ] Selection Sort
+  - [ ] Insertion Sort
+  - [ ] Heap Sort
+  - [ ] Merge Sort
+  - [x] [QuickSort](lib/sorting_quicksort.ex)
+
 Inspiration: https://github.com/trekhleb/javascript-algorithms

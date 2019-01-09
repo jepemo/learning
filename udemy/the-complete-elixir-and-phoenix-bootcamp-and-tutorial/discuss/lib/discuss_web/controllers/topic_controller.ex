@@ -5,7 +5,7 @@ defmodule DiscussWeb.TopicController do
   alias Discuss.Repo
 
   def index(conn, _params) do
-    # IO.inspect Topic
+    # IO.inspect(conn.assigns)
     topics = Repo.all(Topic)
     # IO.inspect(topics)
     render(conn, "index.html", topics: topics)

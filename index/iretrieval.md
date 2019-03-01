@@ -1,0 +1,63 @@
+# Information Retrieval and Search Engines
+
+- [ ] [Introduction Coursera Course: Text Retrieval and Search Engines](https://www.coursera.org/learn/text-retrieval/home/welcome)
+  - [x] [Week 1](https://www.coursera.org/learn/text-retrieval/home/week/1): Introduction Text Retrieval and Vector Space Model - *(24/10/2017)*
+  - [ ] [Week 2](https://www.coursera.org/learn/text-retrieval/home/week/2)
+  - [ ] [Week 3](https://www.coursera.org/learn/text-retrieval/home/week/3)
+  - [ ] [Week 4](https://www.coursera.org/learn/text-retrieval/home/week/4)
+  - [ ] [Week 5](https://www.coursera.org/learn/text-retrieval/home/week/5)
+  - [ ] [Week 6](https://www.coursera.org/learn/text-retrieval/home/week/6)
+- [ ] Introduction
+  - [x] [Search Engines and Information Retrieval](http://dg3rtljvitrle.cloudfront.net/slides/chap1.pdf) - *(26/05/2018)*
+  - [ ] [Boolean retrieval](https://nlp.stanford.edu/IR-book/pdf/01bool.pdf)
+  - [ ] [Architecture of a Search Engine](http://www.search-engines-book.com/slides/)
+  - [ ] [Processing Text](http://dg3rtljvitrle.cloudfront.net/slides/chap4.pdf)
+- [ ] Merge algorithm for proximity queries using a positional inde
+  - [ ] [The term vocabulary and postings lists](https://nlp.stanford.edu/IR-book/pdf/02voc.pdf)
+  - [ ] [Index Construction](https://nlp.stanford.edu/IR-book/pdf/04const.pdf)
+  - [ ] [Ranking and Indexes](http://dg3rtljvitrle.cloudfront.net/slides/chap5.pdfl)
+- [ ] Spelling correction
+  - [ ] [Dictionaries and tolerant retrieval](https://nlp.stanford.edu/IR-book/pdf/03dict.pdf)
+  - [ ] [How to write a spelling corrector (Peter Norvig)](http://norvig.com/spell-correct.html)
+- [ ] Algorithms for postings list compression
+  - [ ] [Index Compresion](https://nlp.stanford.edu/IR-book/pdf/05comp.pdf)
+- [ ] Probabilistic IR: the binary independence model
+  - [ ] [Scoring, term weighting and the vector space model](https://nlp.stanford.edu/IR-book/pdf/06vect.pdf)
+- [ ] Computing scores and BM25F
+  - [ ] [Retrieval Models](http://dg3rtljvitrle.cloudfront.net/slides/chap7.pdf)
+  - [ ] [Computing scores in a complete search system](https://nlp.stanford.edu/IR-book/pdf/07system.pdf)
+  - [ ] [Probabilistic information retrieval](https://nlp.stanford.edu/IR-book/pdf/11prob.pdf)
+  - [ ] [Beyond the Bag of Words](http://dg3rtljvitrle.cloudfront.net/slides/chap11.pdf)
+- [ ] Evaluation methods & NDCG
+  - [ ] [Evaluation in information retrieval](https://nlp.stanford.edu/IR-book/pdf/08eval.pdf)
+  - [ ] [Evaluating Search Engines](http://dg3rtljvitrle.cloudfront.net/slides/chap8.pdf)
+- [ ] Classification and Clustering
+  - [ ] [Lecture Notes](http://dg3rtljvitrle.cloudfront.net/slides/chap9.pdf)
+  - [ ] [Text classification and Naive Bayes](https://nlp.stanford.edu/IR-book/pdf/13bayes.pdf)
+  - [ ] [Vector space classification](https://nlp.stanford.edu/IR-book/pdf/14vcat.pdf)
+  - [ ] [Support vector machines and machine learning on documents](https://nlp.stanford.edu/IR-book/pdf/15svm.pdf)
+- [ ] Learning to rank
+  - [ ] [Lecture notes](http://web.stanford.edu/class/cs276/handouts/lecture14-learning-ranking.pdf)
+- [ ] Distributed word representations for IR
+  - [ ] [Lecture Notes](http://web.stanford.edu/class/cs276/handouts/lecture20-distributed-representations.pdf)
+  - [ ] [Distributed Representations of Words and Phrases and their Compositionality (Mikolov et al., 2013)](http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)
+  - [ ] [GloVe: Global Vectors for Word Representation (Pennington et al., 2014)](https://nlp.stanford.edu/pubs/glove.pdf)
+- [ ] Link analysis
+  - [ ] [Lecture Notes](https://nlp.stanford.edu/IR-book/pdf/21link.pdf)
+- [ ] MapReduce (with Java)
+  - [ ] [Lecture Notes](http://web.stanford.edu/class/cs276/handouts/mapreduce-pact06-keynote.pdf)
+  - [ ] [Map-Reduce and the New Software Stack](http://www.mmds.org/mmds/v2.1/ch02-mapreduce.pdf)
+  - [ ] [Jeff Dean Presentation](https://research.google.com/archive/mapreduce-osdi04-slides/index.html)
+- [ ] Crawling and near-duplicate pages
+  - [ ] [Crawls and Feeds](http://dg3rtljvitrle.cloudfront.net/slides/chap3.pdf)
+  - [ ] [Web search basics](https://nlp.stanford.edu/IR-book/pdf/19web.pdf)
+  - [ ] [Web crawling and indexes](https://nlp.stanford.edu/IR-book/pdf/20crawl.pdf)
+- [ ] Other
+  - [ ] [Personalization](http://web.stanford.edu/class/cs276/handouts/personalization-lecture-1-per-page.pdf)
+  - [ ] [Social Search](http://dg3rtljvitrle.cloudfront.net/slides/chap10.pdf)
+  - [ ] [Queries and Interfaces](http://dg3rtljvitrle.cloudfront.net/slides/chap6.pdf)
+  - [ ] [Question Answering](http://web.stanford.edu/class/cs276/handouts/lecture19-Web-QA.pdf)
+
+- :closed_book: [**Reference** IR Book](https://nlp.stanford.edu/IR-book/html/htmledition/irbook.html)
+- :closed_book: [**Reference** IR+Search Engines Book](http://ciir.cs.umass.edu/downloads/SEIRiP.pdf)
+- [ ] **Extra** Real Web Search engine: [Publication](https://www.oath.com/press/open-sourcing-vespa-yahoo-s-big-data-processing-and-serving-eng/) and [Discussion](https://www.reddit.com/r/programming/comments/72r7uq/yahoo_open_sources_its_search_engine_vespa/)

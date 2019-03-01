@@ -1,0 +1,26 @@
+# Machine learning
+
+- [x] [Udemy: Machine learning y data science con scikit-learn y pyspark](https://www.udemy.com/machine-learning-y-data-science-con-scikit-learn-y-pyspark/)
+  - [x] Introducción a la ciencia de datos y machine learning - *(12/10/2017)*
+  - [x] Librerías para tratamiento y visualización de datos con python - *(23/05/2018)*
+  - [x] Scikit-learn como librería de machine learning - *(8/8/2018)*
+  - [x] ~~Pyspark como librería de big data y data science~~
+  - [x] Sistemas de recomendación - *(12/08/2018)*
+- [ ] [Udacity:  Intro to Machine Learning](https://classroom.udacity.com/courses/ud120)
+  - [x] Welcome to machine learning
+  - [x] Naive Bayes
+  - [x] SVM
+  - [ ] Decision Trees
+  - [ ] Choose your own algorithm
+  - [ ] Datasets & Questions
+  - [ ] Regressions
+  - [ ] Outliers
+  - [ ] Clustering
+  - [ ] Feature Scaling
+  - [ ] Text Learning
+  - [ ] Feature Selection
+  - [ ] PCA
+  - [ ] Validation
+  - [ ] Evaluation Metrics
+  - [ ] Trying it all together
+  - [ ] Final Project

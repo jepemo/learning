@@ -4,7 +4,7 @@ class Solution:
             for ind2 in range(0, len(nums)):
                 v1 = nums[ind1]
                 v2 = nums[ind2]
-                if v1 + v2 == target:
+                if v1 + v2 == target and ind1 != ind2:
                     return [ind1, ind2]
                 
         return []

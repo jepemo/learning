@@ -1,0 +1,121 @@
+# Distributed Systems and Systems Design
+
+- [ ] Operative Systems
+  - [ ] [Advanced Operating Systems](https://classroom.udacity.com/courses/ud189)
+    - [x] Principle of abstraction - *(14/10/2017)*
+    - [x] Hardware Resources - *(14/10/2017)*
+    - [x] OS Functionality - *(14/10/2017)*
+    - [x] Managing the CPU and Memory - *(14/10/2017)*
+    - [x] OS Structure Overview - *(10/11/2017)*
+    - [x] The SPIN Approach - *(06/01/2018)*
+    - [x] The ExoKernel Approach - *(23/05/2018)*
+    - [x] The L3 MicroKernel Approach - *(01/06/2018)*
+    - [x] Intro to Virtualization - *(03/09/2018)*
+    - [ ] Memory Virtualization
+    - [ ] CPU & Device Virtualization
+    - [ ] Shared Memory Machines
+    - [ ] Synchronization
+    - [ ] Communication
+    - [ ] Lightweight RPC
+    - [ ] Scheduling
+    - [ ] Shared Memory Multiprocessor OS
+    - [ ] Barrier Synchronization
+    - [ ] Definitions
+    - [ ] Lamport Clocks
+    - [ ] Latency Limits
+    - [ ] Active Networks
+    - [ ] Systems From Components
+    - [ ] Spring Operative System
+    - [ ] Java RMI
+    - [ ] Enterprise JavaBeans
+    - [ ] Global Memory Systems
+    - [ ] Distributed Shared Memory
+    - [ ] Distributed FileSystems
+    - [ ] Lightweight Recoverable Virtual Memory
+    - [ ] RioVista
+    - [ ] QuickSilver
+    - [ ] Giant Scale Services
+    - [ ] Mapreduce
+    - [ ] Content Delivery Networks
+    - [ ] TS-Linux
+    - [ ] PTS
+    - [ ] Principles of information Security
+    - [ ] Security In Andrew
+    - [ ] Interview with Yousef Khalidi
+- [ ] Intro Cloud
+  - [ ] [Communication 1, the Internet in a Day](http://www.cs.cmu.edu/~dga/15-440/F12/lectures/02-internet1.pdf)
+  - [ ] [Communication 2, the Internet in a Day](http://www.cs.cmu.edu/~dga/15-440/F12/lectures/03-internet2.pdf)
+  - [ ] [How it Works](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/II%20-%20HowItWorks.pdf)
+  - [ ] [Network Routing](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/III%20-%20The%20Cloud%20and%20the%20Network.pdf)
+  - [ ] [P2P file sharing and search](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/IV%20-%20Overlay%20Networks.pdf)
+  - [ ] [First and second tier cloud services](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/V%20-%20More%20DataCenter%20Services.pdf)
+  - [ ] [Adaptive Overlays for the tier 2 cloud](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/VI%20-%20Adaptive%20Overlays.pdf)
+  - [ ] [Torrents and Tit-for-Tat Incentives.  BAR Gossip](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/VII%20-%20Torrents%20and%20Tit%20for%20Tat.pdf)
+- [ ] Intro DS  
+  - [ ] [Anatomy of a cloud. CAP theorem](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/VIII%20-%20Data%20Center%20Anatomy.pdf)
+  - [ ] [CAP Theorem](http://ksat.me/a-plain-english-introduction-to-cap-theorem/)
+  - [ ] [CAP Twelve Years Later: How the "Rules" Have Changed](https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
+  - [ ] [Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
+  - [ ] [A Brief Tour of FLP Impossibility](http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/)
+  - [ ] [Harvest, Yield, and Scalable Tolerant Systems](https://radlab.cs.berkeley.edu/people/fox/static/pubs/pdf/c18.pdf)
+  - [ ] [General: Notes on Distributed Systems for Young Bloods](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)
+  - [ ] [A Note on Distributed Computing](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.41.7628&rep=rep1&type=pdf)
+  - [ ] [Times, Clocks and Ordering of Events in Distributed Systems](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
+  - [ ] [Session Guarantees for Weakly Consistent Replicated Data](http://www.cs.utexas.edu/~dahlin/Classes/GradOS/papers/SessionGuaranteesPDIS.pdf)
+  - [ ] [Aphyr: An introduction to distributed systems: Summary of distributed systems](https://github.com/aphyr/distsys-class)
+  - [ ] [Do the Online Go tutorial](https://tour.golang.org/welcome/1)
+- [ ] Consistency
+  - [ ] [BASE methodology versus ACID model](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/IX%20-%20BASE%20versus%20ACID.pdf)
+  - [ ] [Consistency and time.  Logical and Vector clocks.  Consistent cuts.](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/X%20-%20Replication%20Consistency%20and%20Clocks.pdf)
+- [ ] Storage & Databases
+  - [ ] [Dynamo: Amazon's Highly Available Key Value Store](http://bnrg.eecs.berkeley.edu/~randy/Courses/CS294.F07/Dynamo.pdf)
+  - [ ] [Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
+  - [ ] [The Google Filesystem](http://static.googleusercontent.com/media/research.google.com/en/us/archive/gfs-sosp2003.pdf)
+  - [ ] [Cassandra - A Decentralized Structured Storage System](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.161.6751&rep=rep1&type=pdf)
+  - [ ] [CRUSH: Controlled, Scalable, Decentralized Placement of Replicated Data](https://www.ssrc.ucsc.edu/Papers/weil-sc06.pdf)
+- [ ] Messaging Systems
+  - [ ] [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+  - [ ] [Kafka: a Distributed Messaging System for Log Processing](http://notes.stephenholiday.com/Kafka.pdf)
+- [ ] Distributed Consensus
+  - [ ] [2 and 3-phase commit](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XI%20-%202PC%20and%203PC.pdf)
+  - [ ] [Consensus and the FLP theorem](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XII%20-%20Consensus%20and%20FLP.pdf)
+  - [ ] [Paxos](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XIII%20-%20Paxos.pdf)
+  - [ ] [Paxos Made Simple](https://www.microsoft.com/en-us/research/publication/paxos-made-simple/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Fpaxos-simple.pdf)
+  - [ ] [The Chubby Lock Service for loosely coupled distributed systems](http://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf)
+  - [ ] [Paxos made live - An engineering perspective](https://research.google.com/archive/paxos_made_live.html)
+  - [ ] [Raft Consensus Algorithm](https://raft.github.io/)
+  - [ ] [Atomic multicast with Virtual Synchrony guarantees ](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XIV%20-%20Virtual%20Synchrony.pdf)
+  - [ ] [Atomic multicast: How much durability is needed?](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XV%20-%20How%20Much%20Durability.pdf)
+  - [ ] [Atomic multicast: How much ordering is needed?](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XVI%20-%20Too%20Many%20Options.pdf)
+- [ ] Transactions
+  - [ ] [Transactional model, ACID](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XVII%20-%20Transactions%20I.pdf)
+  - [ ] [Implementing transactional services](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XVIII%20-%20Transactions%20II.pdf)
+- [ ] Testing, monitoring and tracing
+  - [ ] [Dapper, Google's large scale distributed-systems tracing infrastructure](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36356.pdf)
+- [ ] Systems
+  - [ ] [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+  - [ ] [The RealTime Cloud](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XXI%20-%20RealTime.pdf)
+  - [ ] [Information Retrieval in the Facebook cloud](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XXII%20-%20FaceBook.pdf)
+  - [ ] [Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.](https://github.com/donnemartin/system-design-primer)
+- [ ] Security
+  - [ ] [Security concerns for consolidated systems. Synthetic diversity](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XXIII%20-%20Consolidation.pdf)
+  - [ ] [Future cloud I: Computing on encrypted data](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XXIV%20-%20Attack.pdf)
+- [ ] Other
+  - [ ] [Future cloud II:	Cloud virtualization](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/CS5412_UnshackleTheCloud_012412.pdf)
+  - [ ] [The cloud value proposition](http://www.cs.cornell.edu/courses/cs5412/2014sp/slides/XXVI%20-%20Value%20Proposition.pdf)
+  - [ ] [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+- [ ] :punch: **Questions-Exercises** Hackerank Distributed Systems Domain
+  - [ ] [Multiple Choice](https://www.hackerrank.com/domains/distributed-systems/distributed-mcq)
+  - [ ] [Client Server](https://www.hackerrank.com/domains/distributed-systems/client-server)
+  - [ ] [MapReduce Basics](https://www.hackerrank.com/domains/distributed-systems/mapreduce-basics)
+- [ ] [:punch: **FINAL** Project: Create Distributed Database: ZigguratDB](https://github.com/jepemo/zigguratdb)
+- [x] [:punch: **FINAL** Project: Create simple Blockchain project: basic-blockchain](https://github.com/jepemo/basic-blockchain)
+- [ ] [**Optional** lecture: Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems](https://www.amazon.es/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_1?ie=UTF8&qid=1507386946&sr=8-1&keywords=Designing+Data-Intensive+Applications%3A+The+Big+Ideas+Behind+Reliable%2C+Scalable%2C+and+Maintainable+Systems)
+- [ ] [Blockchains from a Distributed Computing Perspective](https://cs.brown.edu/courses/csci2952-a/papers/perspective.pdf)
+- [ ] [**Optional** lecture: Eventual Consistency & Bitcoin](https://disco.ethz.ch/courses/podc_allstars/lecture/chapter20.pdf)
+- [ ] [**Optional Coursera: Bitcoin and Cryptocurrency Technologies**](https://www.coursera.org/learn/cryptocurrency/home/welcome)
+- [ ] [**Extra**: Inside the Mac OS X Kernel(2007)](https://events.ccc.de/congress/2007/Fahrplan/attachments/1053_inside-macosx-kernel.pdf)
+- :closed_book: [**Reference** Book: Distributed Systems for fun and profit](http://book.mixu.net/distsys/)
+- :closed_book: [**Reference** Book: Principles of Distributed Systems](https://disco.ethz.ch/courses/podc_allstars/lecture/podc.pdf)
+- :closed_book: [**Reference** Programming:  CMU: Distributed Systems in Go Programming Language](http://www.cs.cmu.edu/~dga/15-440/F12/syllabus.html)
+- [**Other Cloud Course**: CS349D: Cloud Computing Technology](https://web.stanford.edu/class/cs349d/)

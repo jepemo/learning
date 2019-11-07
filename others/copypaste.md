@@ -36,3 +36,29 @@ du: no s’ha pogut accedir a 'run/user/1000/gvfs': S’ha denegat el permís
 129M	var
 0	vmlinuz
 0	vmlinuz.old
+
+# CentOS
+0	bin
+130M	boot
+0	dev
+29M	etc
+112M	home
+0	lib
+0	lib64
+0	media
+0	mnt
+21M	opt
+du: no s’ha pogut accedir a 'proc/9586/task/9586/fd/3': El fitxer o directori no existeix
+du: no s’ha pogut accedir a 'proc/9586/task/9586/fdinfo/3': El fitxer o directori no existeix
+du: no s’ha pogut accedir a 'proc/9586/fd/3': El fitxer o directori no existeix
+du: no s’ha pogut accedir a 'proc/9586/fdinfo/3': El fitxer o directori no existeix
+0	proc
+44K	root
+du: no s’ha pogut accedir a 'run/user/1000/gvfs': S’ha denegat el permís
+80M	run
+0	sbin
+0	srv
+0	sys
+32K	tmp
+3,5G	usr
+188M	var

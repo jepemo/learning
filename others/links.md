@@ -9,3 +9,4 @@
 ###  Software Architecture
  - [Style guide for object oriented design](https://github.com/lurumad/object-design): Presentacion para buenas practicas de diseño orientado a objetos
  - [Modular Monolith: A Primer - Kamil Grzybek](https://www.kamilgrzybek.com/design/modular-monolith-primer/): Introduccion a la arquitectura monolitica modular. Hay un [repositorio de ejemplo en C#](https://github.com/kgrzybek/modular-monolith-with-ddd).
+ - [Thoughts on Software Development - Business logic](https://thomasvilhena.com/2019/08/business-logic)

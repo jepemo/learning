@@ -21,13 +21,13 @@
   
 ## Test
 1. ¿Qué son los principios SOLID?
-  * [] Convenciones a nivel de arquitectura industrial para diseñar edificios más sólidos que no se caigan
-  * [] Convenciones a nivel de diseño de software que ayudan a molar
-  * [x] Convenciones a nivel de diseño de software que ayudan a conseguir un código más mantenible, tolerante a cambios, y testable
-  * [] Convenciones a nivel de diseño de software que ayudan a escoger mejor el framework de desarrollo
+  - [ ] Convenciones a nivel de arquitectura industrial para diseñar edificios más sólidos que no se caigan
+  - [ ] Convenciones a nivel de diseño de software que ayudan a molar
+  - [x] Convenciones a nivel de diseño de software que ayudan a conseguir un código más mantenible, tolerante a cambios, y testable
+  - [ ] Convenciones a nivel de diseño de software que ayudan a escoger mejor el framework de desarrollo
   
 2. ¿Por qué decimos que hay que huir del rol de arquitecto de software?
-  * [] Porque cobran demasiado y es más económico sólo tener desarrolladores rasos
-  * [] Porque suena rimbombante
-  * [x] Porque todos los desarrolladores de un equipo deberían tener nociones de diseño de software para fomentar la autonomía y agilidad del equipo
+  - [ ] Porque cobran demasiado y es más económico sólo tener desarrolladores rasos
+  - [ ] Porque suena rimbombante
+  - [x] Porque todos los desarrolladores de un equipo deberían tener nociones de diseño de software para fomentar la autonomía y agilidad del equipo
 

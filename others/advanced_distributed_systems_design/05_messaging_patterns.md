@@ -26,7 +26,7 @@ Que pasa si "Order billed" llega antes que "Order accepted" a Shipping?
 ```
 | Sales | ----- Order accepted ------> | Billing |  ----> Order billed ----> | Shipping |
     |                                                                            ^
-	\---------- Order accepted --------------------------------------------------|
+    \---------- Order accepted --------------------------------------------------|
 ```
 
 En el orden normal, el mensaje "order accepted" crearia un registro en "Shipping" indicando que la orden se ha "creado" pero aun no esta pagada. Luego "Order billed" recuperaria este registro y actualizaria el estado a "Pagado" y se procesaria el envio.

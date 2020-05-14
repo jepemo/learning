@@ -113,3 +113,25 @@ inal class StandardOutputHtmlPrinter implements Printer
 }
 ```
 
+## Keep It Real
+
+* Para el caso de aplicacion web: MVC
+  * Habria que crear una clases para cada recurso/operacion (VideoPostController)
+  * A esta clase, se le inyectaria el servicio que va a usar (VideoCreator)
+  * En el caso del VideoCreator, inyectaria el repositori, para insertar el video en BBDD, pero antes crearia la instancia del objeto.
+* Para el caso de CQRS
+  * El punto de entrada (tambien una clases para recurso/operacion)
+  * Crearia el "command" con los parametros de entrada y haria el dispatch
+  
+## Test
+¿Qué beneficios obtenemos al aplicar el Principio de Responsabilidad Única?
+- [ ] Permitir composición de clases (inyectar colaboradores)
+- [ ] Evitar duplicidad de código
+- [ ] Alta cohesión y robustez
+- [x] Todas las anteriores
+
+¿Cuándo empujaremos la lógica de negocio hacia nuestros modelos de dominio?
+- [ ] Siempre. La Programación Orientada a Objetos se particulariza por representar en clases los datos + su comportamiento asociado
+- [x] Siempre que no requiera de dependencias externas. En ese caso extraeremos esa lógica a un servicio aparte para poderlo componer
+- [ ] Depende de cómo me levante ese día, tampoco hay un criterio claro.
+

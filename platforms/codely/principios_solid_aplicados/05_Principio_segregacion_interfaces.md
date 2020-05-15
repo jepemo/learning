@@ -23,4 +23,102 @@ $notifier($filename, $tag, $description)
 
 ## Keep it real
 
+Por ejemplo para el siguiente caso se ha creado la interfaz a partir de la implementacion (header interface):
+
+```php
+final class UserRepositoryMySql extends Repository implements UserRepository
+{
+    public function save(User $user): void
+    {
+        $this->entityManager()->persist($user);    
+    }
+
+    public function flush(User $user)
+    {
+        $this->entityManager()->flush($user);
+    }
+
+    public function saveAll(Users $users)
+    {
+        each($this->persister(),$users);
+    }
+}
+
+interface UserRepository
+{
+    public function save(User $user): void;
+    
+    public function flush(User $user): void;
+
+    public function saveAll(Users $users): void;
+    
+    public function search(UserId $id): ?User;
+    
+    public function all(): Users;
+}
+```
+
+Y para el siguiente caso de uso:
+
+```php
+// ...
+public function __invoke(UserId $id)
+{
+    $user = $this->finder->__invoke($id);
+       
+    $user->increaseTotalVideosCreated();
+       
+    $this->repository->save($user);
+    $this->repository->flush($user);
+}
+// ...
+```
+
+Pero por ejemplo, si quiesieramos utilizar otra implementación de la interfaz, por ejemplo Redis, no tendria sentido que existiera el metodo *flush*. Ya que con redis al hacer el save se guarda directament en BBDD.
+
+En este caso, la solución pasaria por quitar el flush del caso de uso e integrarlo en el save de la implementacion MySQL (tambien se quitaria de la interfaz):
+```php
+// caso de uso
+
+// ...
+public function __invoke(UserId $id)
+{
+    $user = $this->finder->__invoke($id);
+      
+    $user->increaseTotalVideosCreated();
+        
+    $this->repository->save($user);
+}
+// ...
+    
+// Implementacion MySQL
+final class UserRepositoryMySql extends Repository implements UserRepository
+{
+    public function save(User $user): void
+    {
+        $this->entityManager()->persist($user);    
+        $this->entityManager()->flush($user);
+    }
+
+    public function saveAll(Users $users)
+    {
+        each($this->persister(),$users);
+    }
+}
+```
+
+El contra, en este caso, seria que cada vez que guardo, haria el flush. Que dependiendo del caso podria tener problemas de rendimiento.
+
+## Test
+
+Utilizar interfaces con contratos en base a los clientes ayudará a que nuestro código tenga...
+- [ ] Alta cohesión y acoplamiento estructural
+- [ ] Baja cohesión y alto acoplamiento estructural
+- [x] lta cohesión y bajo acoplamiento estructural
+
+Extraer nuestras interfaces a partir de una implementación existente puede derivar en...
+- [x] Header interfaces
+- [ ] Role interfaces
+- [ ] Body interfaces
+
 

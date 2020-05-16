@@ -121,3 +121,5 @@
 - [**Other Cloud Course**: CS349D: Cloud Computing Technology](https://web.stanford.edu/class/cs349d/)
 - [Canal twitch papers](https://www.twitch.tv/lindseykuper/videos)
 - [Patterns for resilient distributed systems](https://levelup.gitconnected.com/patterns-for-resilient-distributed-systems-750063996ee3)
+- [Paper: Design patterns for container-based distributed systems](https://www.usenix.org/system/files/conference/hotcloud16/hotcloud16_burns.pdf)
+- [Distributed architecture concepts I learned while building a large payments system](https://blog.pragmaticengineer.com/distributed-architecture-concepts-i-have-learned-while-building-payments-systems/)

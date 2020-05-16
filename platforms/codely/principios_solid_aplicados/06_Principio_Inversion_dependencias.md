@@ -172,4 +172,68 @@ Es decir, la clase no define que dependencia utiliza, simplemente que contrato r
 
 ## Keep It Real
 
+En este caso, para la clase "VideoCreator" que utiliza el repositorio para almacenar los datos y el publisher para enviar eventos.
+
+```php
+final class VideoCreator
+{
+    private $repository;
+    private $publisher;
+    public function __construct(VideoRepository $repository, DomainEventPublisher $publisher)
+    {
+        $this->repository = $repository;
+        $this->publisher  = $publisher;
+    }
+    public function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): void
+    {
+        $video = Video::create($id, $type, $title, $url, $courseId);
+        $this->repository->save($video);
+        $this->publisher->publish(...$video->pullDomainEvents());
+    }
+}
+
+interface VideoRepository
+{
+    public function save(Video $video): void;
+    public function search(VideoId $id): ?Video;
+    public function searchByCriteria(Criteria $criteria): Videos;
+}
+
+interface DomainEventPublisher
+{
+    /**
+     * Records events to be published afterwards using the publishRecorded method
+     */
+    public function record(DomainEvent ...$domainEvents): void;
+    /**
+     * Publishes previously recorded events
+     */
+    public function publishRecorded(): void;
+    /**
+     * Immediately publishes the received events
+     */
+    public function publish(DomainEvent ...$domainEvents);
+}
+
+```
+Estas interfaces a su vez disponen de una implementación (Adapter) que si estarán acopladas al ORM y al EventBus que utilicemos respectivamente.
+
+Consejo: Una forma de ver si estamos violando DIP es comprobar nuestras clases del Servicio de aplicación si alguna de las dependencias está apuntando fuera de nuestro Dominio
+
+#### ¿Cuándo deberíamos utilizar interfaces?
+Cuando tenemos que tocar algo de Entrada/Salida (Por ejemplo, nos interesará en tiempo de Test no tener que hacer una conexión real a BD)
+
+Cualquier escenario en el que necesitemos tolerancia al cambio.
+
 ## Test
+
+Con el Principio de Inversión de Dependencias se busca que nuestros casos de uso dependan de una única implementación de una dependencia dada para reducir el acoplamiento
+
+- [x] Eso es Incorrecto
+- [ ] Eso es Correcto
+
+Un modo de comprobar si nuestros casos de uso viola el DIP es...
+
+- [ ] Comprobar si contiene más de un método público
+- [x] Comprobar si alguna dependencia apunta fuera de nuestro Dominio
+- [ ] Comprobar si alguna dependencia contiene algún método privado

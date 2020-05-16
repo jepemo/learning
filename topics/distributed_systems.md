@@ -119,3 +119,5 @@
 - :closed_book: [**Reference** Book: Principles of Distributed Systems](https://disco.ethz.ch/courses/podc_allstars/lecture/podc.pdf)
 - :closed_book: [**Reference** Programming:  CMU: Distributed Systems in Go Programming Language](http://www.cs.cmu.edu/~dga/15-440/F12/syllabus.html)
 - [**Other Cloud Course**: CS349D: Cloud Computing Technology](https://web.stanford.edu/class/cs349d/)
+- [Canal twitch papers](https://www.twitch.tv/lindseykuper/videos)
+- [Patterns for resilient distributed systems](https://levelup.gitconnected.com/patterns-for-resilient-distributed-systems-750063996ee3)

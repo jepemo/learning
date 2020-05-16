@@ -7,6 +7,7 @@
 
 - Extra Readings
   - [ ] [Every Developer Should Know, DeveloperThings](https://developerthing.blogspot.com.es/2017/09/every-developer-should-know_12.html)
+  - [ ] [Stack Overflow: A Technical Deconstruction](https://nickcraver.com/blog/2016/02/03/stack-overflow-a-technical-deconstruction/)
 
 - English Preparation
   - [ ] [English Google Documentation Style](https://developers.google.com/style/)

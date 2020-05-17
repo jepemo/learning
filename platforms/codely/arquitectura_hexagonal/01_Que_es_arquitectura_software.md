@@ -23,3 +23,9 @@
   * [Macro vs micro design](https://codurance.com/2015/05/12/does-tdd-lead-to-good-design/)
   * [Debate acerca de la terminologia de "Arquitectura"](https://twitter.com/mathiasverraes/status/939096131744817153)
   * [Complejidad accidental vs complejidad esencial](https://en.wikipedia.org/wiki/No_Silver_Bullet)
+  
+## Test
+¿A qué nivel afecta la Arquitectura de Software?
+- [ ] Macro design
+- [ ] Micro design
+- [x] Macro y micro design

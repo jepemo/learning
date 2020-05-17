@@ -16,8 +16,9 @@
   * Cambiabilidad
     * Por ejemplo: Sustituir un componente por otro (MySQLVideoRepository a RedisVideoRepository). Utilizando interfaces.
   * Testing
-    * Relacionado con lo anterior, si queremos hacer tests y atacamos sobre una BBDD, podriamos tener un componente que ataque a memoria para que los tests fallan rapidos.
+    * Relacionado con lo anterior, si queremos hacer tests y atacamos sobre una BBDD, podriamos tener un componente que ataque a memoria para que los tests vayan rapidos (o utilizar mocks)
   * Simplicidad
+    * Utilizando patrones de arquitectura aparece como una [simetria](https://twitter.com/gonedark/status/936275444420268032) en el codigo (es decir son parecidos) y por lo tanto mas faciles de entender y extender.
 * Links:
   * [Macro vs micro design](https://codurance.com/2015/05/12/does-tdd-lead-to-good-design/)
   * [Debate acerca de la terminologia de "Arquitectura"](https://twitter.com/mathiasverraes/status/939096131744817153)

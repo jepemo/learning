@@ -1,6 +1,6 @@
 Objetivo:
 
-- [x] Principios SOLID aplicados
+- [x] [Principios SOLID aplicados](./principios_solid_aplicados/)
 - [ ] Arquitectura Hexagonal
 - [ ] Domain Driven Design
 - [ ] Testing: Introduccion y buenas practicas

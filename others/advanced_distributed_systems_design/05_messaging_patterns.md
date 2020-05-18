@@ -47,8 +47,18 @@ El problema, es que si esto ocurre al revés, el mensaje "Order billed" no encon
 Lo importante es que es la infraestructura (sistema de mensajes) la que deberia gestionar estos errores/reintentos, no la logica de negocio.
 	
 ## Visualization
+
+* Como cada mensaje (procesamiento de mensajes) puede estar en diferentes compoentnes, incluso desarrollado por equipos diferentes, es posible que no veamos la "estructura de envio de mensajes".
+* Es util tener una herramienta para la visualización de esta estructura para poder trazar/depurar/etc.
+* También para que un desarrollador que acaba de entrar, conocer como funciona el sistema.
+* Para generar esto, no suele hacerse de forma "estatica" ya que es posible que los componentes no esten disponibles entre si, ya que es un sistema distribuido. Entonces se genera en ejecución, mediante un auditlog.
   
 ## Mesagging patterns: summary
+
+* Introducir la tecnologia solamente en donde tenga sentido: Trabajos asyncronos.
+* Se puede desarrollar con una arquitectura orientada a mensajes, utilizando una BBDD. Luego ya incluir una cola de mensajes.
+* Es facil implementar codigo para gestionar mensajes (handlers/dtos). Lo dificil es gestionar las fronteras entre unos y otros servicios.
+
 
 
 

@@ -42,3 +42,39 @@
  ```
   * A diferencia de las colecciones normales. Se implementa un metodo de busqueda, con el patron Criteria. El cual permite flexibilizar esas busquedas, aunque aumenta la complejidad.
   * Mas información: https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/
+  
+Ejemplo:
+* En la capa de aplicacion (caso de uso), se instancia la entidad de dominio y se llama al repositorio para que la guarde. 
+* La interfaz del repositorio esta en el DOMINIO.
+* Capa de aplicacion solo tiene "imports" de dominio.
+* La clases del caso de uso (servicio de aplicacion) tiene como dependencia en el constructor el repositorio.
+
+## Test
+Para implementar una Arquitectura Hexagonal, ¿Qué patrón de diseño a nivel de repositorio deberemos usar?
+- [ ] ActiveRecord
+- [x] DataMapper
+
+¿En qué capa de la Arquitectura Hexagonal ubicaremos las interfaces de nuestros repositorios (puertos)?
+- [ ] Infraestructura
+- [ ] Aplicación
+- [x] Dominio
+- [ ] Tanto Infraestructura como Aplicación son válidas
+- [ ] Tanto Infraestructura como Dominio son válidas
+- [ ] Tanto Aplicación como Dominio son válidas
+- [ ] Tanto Aplicación como Infraestructura son válidas
+
+¿En qué capa ubicaremos las implementaciones de los repositorios (adaptadores)?
+- [x] Infraestructura
+- [ ] Aplicación
+- [ ] Dominio
+- [ ] Tanto Infraestructura como Aplicación son válidas
+- [ ] Tanto Infraestructura como Dominio son válidas
+- [ ] Tanto Aplicación como Dominio son válidas
+- [ ] Tanto Aplicación como Infraestructura son válidas
+
+¿Por qué ubicar cada componente (puertos y adaptadores) en las dichas capas?
+- [ ] Por que así tendremos todo más organizado
+- [x] Porque gracias a la regla de dependencia, garantizaremos la tolerancia al cambio aislando conceptos externos
+- [ ] Porque lo dice CodelyTV
+- [ ] Porque gracias a la regla de dependencia, la capa de Aplicación sólo conocerá aquella implementación que use y no todo el resto del sistema
+- [ ] Porque gracias a la regla de independencia, la capa de aplicación tendrá derecho a decidir

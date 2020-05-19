@@ -31,8 +31,26 @@
                     | ------ Test Unitario ------------------------|--- Test Integracion ---|
 |----------------------- Test de Aceptacion ------------------------------------------------|
 ```
-  
+ 
+## Test
+¿Cuál es la regla de dependencia?
+- [ ] Aplicación -> Infraestructura -> Dominio
+- [ ] Aplicación -> Dominio -> Infraestructura
+- [ ] Dominio -> Aplicación -> Infraestructura
+- [ ] Dominio -> Infraestructura -> Aplicación
+- [ ] Infraestructura -> Dominio -> Aplicación
+- [x] Infraestructura -> Aplicación -> Dominio
 
+Dónde ubicaremos el caso de uso de registrar usuario
+- [ ] Modelo de domino User
+- [ ] Servicio de Dominio RegisterUser
+- [x] Servicio de Aplicación RegisterUser
+- [ ] Repositorio UserRepository
+
+¿Qué pasaría si no definiéramos una interface en dominio y atacásemos directamente a la implementación en infraestructura?
+- [ ] El caso de uso pasaría a ser asíncrono y resolvería las dependencias a través del handler
+- [x] Si tenemos que cambiar la implementación a usar de infraestructura deberíamos de ir a todas las clases de aplicación que usaban la anterior haciendo los cambios pertinentes
+- [ ] Deberíamos modificar nuestra regla de dependencia para poder seguir cumpliéndola y así asegurar la cambiabilidad
 
 ## To-Do: A practicar
 

@@ -30,3 +30,15 @@
   * Definicion: "A Repository represents all objects of a certain type as a conceptual set. It acts like a collection, except with more elaborate querying capability."
   * Es decir: Es una abstraccion que representa una coleccion de objetos. Con las operaciones de: insercion, borrado, actualizacion, consulta.
   * La diferencia principal es que todos los metodos (excepto el de busqueda) tienen de entrada a la entidad. Con lo que aislamos el "PK" de la entidad.
+ ```java
+ public interface AccountRepository {
+
+     void addAccount(Account account);
+     void removeAccount(Account account);
+     void updateAccount(Account account); // Think it as replace for set
+
+     List query(AccountSpecification specification);
+ }
+ ```
+  * A diferencia de las colecciones normales. Se implementa un metodo de busqueda, con el patron Criteria. El cual permite flexibilizar esas busquedas, aunque aumenta la complejidad.
+  * Mas información: https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/

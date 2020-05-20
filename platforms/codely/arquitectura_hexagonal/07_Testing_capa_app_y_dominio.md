@@ -18,7 +18,8 @@
   * El test unitario será independiente del punto de entrada. Desde el momento en el que encapsulamos nuestros casos de uso en servicios de aplicación para poderlos reaprovechar desde múltiples puntos de entrada (controlador API HTTP o CLI), el test unitario invocará directamente al caso de uso para desacoplarse también del controlador.
   * Al ser los más rápidos de ejecutar y estar centrados en la lógica de negocio, es en estos test donde ubicamos las comprobaciones más exhaustivas en cuanto a las distintas ramificaciones de nuestros casos de uso.
   * Ejemplo:
-  ```scala
+  
+```scala
   final class VideoCreatorShould extends UnitTestCase with MockFactory {
 
   // ℹ️ Falseamos las dependencias de infraestructura (adapters) creando un doble de test de la interface de dominio (ports)
@@ -52,7 +53,8 @@
       .expects(message)
       .returning(())
 }
-  ```
+```
+
 * Test de integración
   * Tipo de test unitario donde el objeto de test es alguna implementación de uno de nuestros puertos.
   * Por ejemplo, en el caso del test unitario, habríamos falseado mediante un doble de test la interface de dominio UserRepository, mientras que en el test de integración lo que haremos será justamente testear la implementación de MySqlUserRepository para validar que se comporta como esperamos.
@@ -81,6 +83,7 @@ Si nos olvidamos de guardar en base de datos cuando nos hacen un POST a /videos/
 - [ ] Test de aceptación, Test unitario y Test de integración
 
 * Explicación ultima pregunta:
+
 ```
 El test de integración seguro que no fallaría ya que la integración con base de datos sería correcta, el único problema sería que no se estaría haciendo uso de ella. Con lo cuál, lo podemos descartar sobre seguro.
 

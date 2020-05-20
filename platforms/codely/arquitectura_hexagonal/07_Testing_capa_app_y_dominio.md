@@ -73,9 +73,20 @@ Hemos explicado que creamos un doble de test a partir del contrato de dominio Us
 - [ ] Realmente sería lo ideal, pero no podemos porque MySqlClient no es una interface si no una clase final y no podemos crear dobles de test de ella
 
 Si nos olvidamos de guardar en base de datos cuando nos hacen un POST a /videos/id-nuevo-video, ¿qué test debería petar?
-- [x] Test de aceptación
-- [ ] Test unitario
+- [ ] Test de aceptación
+- [x] Test unitario
 - [ ] Test de integración
 - [ ] Test de aceptación y Test unitario
 - [ ] Test de aceptación y Test de integración
 - [ ] Test de aceptación, Test unitario y Test de integración
+
+* Explicación ultima pregunta:
+```
+El test de integración seguro que no fallaría ya que la integración con base de datos sería correcta, el único problema sería que no se estaría haciendo uso de ella. Con lo cuál, lo podemos descartar sobre seguro.
+
+El test unitario, en caso de estar bien hecho y aquí sí haber especificado que se debe invocar al método save del colaborador VideoRepository, sí fallaría estrepitosamente evidenciando el problema.
+
+El test de aceptación es el único que podríamos dudar dependiendo de las comprobaciones que hagamos a nivel de aceptación. Por ejemplo, en el caso que veíamos en la lección no petaría, ya que la respuesta seguiría siendo un 201 created. No obstante, sí que es cierto que si nuestros test de aceptación comprueban que el registro existe en la base de datos tras haberse ejecutado, también fallaría.
+
+Esto es un tema donde puede haber controversia y preferimos dejarlo a gusto del consumidor, así que estamos completamente abiertos a que nos expliques tus argumentos a favor o en contra en los comentarios de abajo!
+```

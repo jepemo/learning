@@ -38,3 +38,19 @@
     * Uno de los principales motivos por los que separar nuestra aplicación en módulos o sub-dominios es el de promover la mantenibilidad de la aplicación a lo largo del tiempo. Con lo cuál, podría tener sentido buscar el aislamiento entre los distintos módulos de nuestra aplicación. Desde el momento en el que son unidades atómicas (cada carpeta de modules + la de shared autocontiene todo lo necesario para su funcionamiento), esto se torna más fácil.
     * Podemos elevar el aislamiento entre módulos a través de un Command y Query Bus como se ve en el curso de CQRS. Esto haría que los módulos no se conocieran entre sí (no podríamos hacer uso del repositorio del módulo de vídeos desde el módulo de usuarios por ejemplo). La comunicación se haría a través del bus.
     * Esto facilitaría una eventual promoción de los módulos a Bounded Context, servicios aislados, o división de los módulos en caso de que alguno empiece a crecer mucho.
+
+## Test
+¿Cómo le especifico el canal de Slack al que enviar notificaciones en mi adaptador para notificar nuevos vídeos publicados?
+- [ ] Parámetro de tipo SlackChannel en método notify
+- [ ] Parámetro sin tipado estricto en método notify para poder pasar otro tipo de valor como el email de destino en el caso del notificador vía email
+- [x] Inyección de parámetro vía constructor de clase ya que no está en la interface
+
+¿Qué puedo hacer para evitar enviar emails de verdad al ejecutar mis tests?
+- [x] Mockear el componente de infraestructura, o inyectar una implementación fake
+- [ ] Especificar emails falsos como datos de test
+- [ ] Mockear el servidor de envío de emails para que cuando mi implementación lo llame, éste no haga nada
+
+¿Cuándo se da el acoplamiento estructural?
+- [x] Cuando nos hemos desacoplado a nivel de código de una implementación gracias a una interface, pero esta interface sigue exponiendo semántica de la implementación, nos obliga a usar los métodos en un determinado orden, o en resumen la interface y su uso se ve influenciado por alguna implementación
+- [ ] Cuando la estructura de carpetas de nuestra aplicación tiene mucho acoplamiento a los conceptos de dominio
+- [ ] Cuando estructuramos las interfaces pensando en los clientes que las van a usar y no en las implementaciones que tenemos

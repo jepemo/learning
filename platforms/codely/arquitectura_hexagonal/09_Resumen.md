@@ -8,3 +8,9 @@
 * Cómo publicar eventos de dominio en RabbitMQ. Qué alternativas tenemos a la hora de publicar eventos.
 * Flujo de una petición.
 * Estrategia de testing para test unitarios y de integración.
+* Preguntas:
+  * ¿Si se utiliza un servicio de dominio en varios casos de uso, porque no inyectarlo en vez de instanciarlo?
+    * Se puede hacer (si esta controlado)
+    * Es mejor no hacerlo ya que:
+      * Se ha dicho que solamente habria que inyectar las interfaces de dominio de la infraestructura
+      * Complicaria el testing, ya que entonces habria que instalarlo en cada uno de los test.

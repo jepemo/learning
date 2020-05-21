@@ -146,18 +146,21 @@ public function it_should_not_find_a_non_existing_student()
 Los tests unitarios abarcan únicamente el scope de una única clase/método
 - [ ] Eso es correcto
 - [x] Eso es incorrecto
+
 (Los tests unitarios validan el correcto funcionamiento de una unidad, que no necesariamente se corresponderá con una única clase)
 
 Los tests de integración...
 - [x] Generalmente tocan Input/Output
 - [ ] Generalmente tocan la integración de varias clases de nuestra aplicación
 - [ ] Generalmente mockean la infraestructura involucrada
+
 (Este tipo de tests validan la integración con elementos externos a nuestra aplicación (BD, APIs...) por lo que no deberían mockear esta interacción)
 
 Los tests de aceptación suelen plantearse desde el punto de vista..
 - [ ] De la infraestructura (BD, Cachés, APIs..)
 - [ ] Del diseñador de nuestro equipo/empresa
 - [x] Del usuario
+
 (Este tipo de tests testearán cómo sería el comportamiento de un usuario con nuestra aplicación, emulando el mismo punto de entrada y comprobando la respuesta que recibe)
 
 

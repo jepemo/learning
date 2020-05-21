@@ -39,7 +39,7 @@ test('return Fizz if fivisible by 3', () => {
 ```
 
 Modificamos el codigo:
-````javascript
+```javascript
 function fizzBuzz(number) {
   if(number % 3 === 0) {
     return 'Fizz';

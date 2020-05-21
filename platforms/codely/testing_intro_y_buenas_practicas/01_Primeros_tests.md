@@ -76,6 +76,7 @@ function fizzBuzz(number) {
 * Respositorio: Sistema de almacenamiento de nuestra aplicacion (BD, APIs, Cachés, etc.)
 * Se haria un test para cada firma de la interfaz.
 * Por ejemplo para probear la implementacion concreta de "MySQL":
+
 ```php
 // Este prueba que guarda y no falla
 public function it_should_save_a_student(): void 
@@ -112,6 +113,7 @@ public function it_should_not_find_a_non_existing_student()
   $this->assertNull($this->repository()->search($studentId));
 }
 ```
+
  * El test que ataca a I/O debe tener todo lo que necesita para su caso de prueba. Por ejemplo:
    * Si tiene que buscar un usuario, antes tiene que intertarlo
    * No vale que otro test cree los datos y otros los recuperen.
@@ -125,7 +127,8 @@ public function it_should_not_find_a_non_existing_student()
 * Utilizando la infraestructura lo mas real que se pueda.
 * Intentar que el escenario sea lo mas real para que falle lo que tenga que fallar en producción
 * Lenguaje Gherkin (permite generar tests a partir de un lenguaje "tipo negocio"):
-```gherkin
+
+```
  // ...
   Scenario: Find an existing student
   Given I send a GET request to '/students/fe7017d8-9e8f-4952-e047e36b1694'
@@ -133,6 +136,7 @@ public function it_should_not_find_a_non_existing_student()
   And the response content shuld be:
   //...
 ```
+
 * En este test, aunque se realiza el flujo completo, no comprobamos si "el dato se ha guardado en BBDD" o si se "ha publicado el evento". Simplemente que la salida es la que toca. Lo otro ya lo hace los tests de integracion y los unitarios.
 
 

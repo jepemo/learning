@@ -49,6 +49,7 @@ function fizzBuzz(number) {
 ```
 
 Siguiendo con la misma filosifia llegamos a:
+
 ```javascript
 function fizzBuzz(number) {
   if(number % 15 === 0) {
@@ -66,6 +67,7 @@ function fizzBuzz(number) {
   return number;
 }
 ```
+
 * Estos tests "prueban" una unidad, pero nunca I/O.
 * SUT (Subject Under Test): Es el conjunto del "Describe" mas los tests que incluyen a ese caso.
 

@@ -1,8 +1,8 @@
 Objetivo:
 
 - [x] [Principios SOLID aplicados](./principios_solid_aplicados/)
-- [ ] [Arquitectura Hexagonal](./arquitectura_hexagonal/)
-- [ ] Testing: Introduccion y buenas practicas
+- [x] [Arquitectura Hexagonal](./arquitectura_hexagonal/)
+- [ ] [Testing: Introduccion y buenas practicas](./testing_intro_y_buenas_practicas/)
 - [ ] CQRS
 - [ ] Event-Driven Architecture
 - [ ] (DDD) Domain Driven Design

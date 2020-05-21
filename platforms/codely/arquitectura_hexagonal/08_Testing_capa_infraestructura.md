@@ -39,3 +39,8 @@ final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
     }
 }
 ```
+
+## Test
+¿Usaremos algún tipo de doble de test para evitar ir a la tabla de base de datos y que nuestros test de integración sean lentos?
+- [ ] Sí, usaremos mocks para falsear la interface y así evitar ese gasto de tiempo de acceder a BD
+- [x] No, en el caso de los test de integración es justamente lo que nos interesa testear

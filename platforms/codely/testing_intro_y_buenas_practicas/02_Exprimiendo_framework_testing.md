@@ -67,3 +67,29 @@ public function shouldSayHelloWhenGreeting
 * assertSame : Para comprobar la referencia (en este caso da igual si estan los metodos de antes)
 * Para paralelizar los tests hay una configuracion en gradle (maxParallelForks)
 * Genera (en build) unos ficheros xml con los resultados para visualizarlos.
+
+## Testing en Scala con ScalaTest
+
+* Los mismo que los anterioes, crean el proyecto a partir de un bootstrap con todo configurado.
+* Utilizan la herramienta "sbt new" con le ruta del template. Luego se completan los datos que faltan (version, nombre proyecto, etc)
+* Para ejecutar: "sbt test"
+* Ejemplo:
+
+```scala
+final class TestingTest extends WordSpec with GivenWhenThen {
+  "Testing" should {
+    "greet" in {
+      val javi1 = Testing("Javi")
+      val javi2 = Testing("Javi")
+
+      javi1 shouldBe javi2
+    }
+  }
+}
+```
+* El test hereda de WordSpec para ya tener los metodos que se necesitan para testear.
+* shouldBe: Mira los valores
+* eq: Para comprobar las referencias
+* Por defecto las "suites" se ejecutan en paralelo
+* Para ejecutar los tests de una "suite" en paralelo hay que añadir un trait ("ParallelTestExecution")
+* Los reportes es igual que Java, estan generados en el directorio "target".

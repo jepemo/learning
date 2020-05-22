@@ -93,3 +93,74 @@ final class TestingTest extends WordSpec with GivenWhenThen {
 * Por defecto las "suites" se ejecutan en paralelo
 * Para ejecutar los tests de una "suite" en paralelo hay que añadir un trait ("ParallelTestExecution")
 * Los reportes es igual que Java, estan generados en el directorio "target".
+
+## Testing en Javascript con Jest
+
+* Libreria "Jest", se esta convirtiendo en el estandar (inicialmente se creo para React)
+* Crean un proyecto "npm" desde cero: "npm init", etc
+* Luego instalan la libreria con:
+
+```
+npm install --save-dev jest
+```
+
+* El fichero de test, se llama igual que el fichero normal, pero anyadiento "test" antes de la extension: "index.test.js"
+* En el fichero de configuracion hay que elegir la herramienta de tests:
+
+```
+// ...
+"scripts": {
+  "test": "jest"
+}
+// ...
+```
+
+* Codigo (index.js):
+
+```javascript
+function greeter(name) {
+	return "Hello " + name + "!";
+}
+
+module.exports = greeter;
+```
+
+* Test (index.test.js):
+
+```javascript
+const greeter = require('./index')
+describe ('greeter should', () => {
+	test('return greeted name', () => {
+		expect(greeter("Javi")).toBe("Hello Javi");
+	});
+});
+```
+
+* El decide como paralelizar los tests
+* Para exportar los resultado al estandar de junit, hay que instalar una libreria "jest-junit":
+
+```
+npm install --save-dev jest-junit
+```
+
+## Test
+
+Es recomendable utilizar el estándar de PHPUnit para generar nuestros reportes de tests en PHP
+- [x] Eso es incorrecto
+- [ ] Eso es correcto
+
+(El estándar más extendido para generar reportes de tests es el de jUnit, por lo que sería el más recomendable a seguir)
+
+No podemos utilizar indistintamente las aserciones 'equals' y 'same' en lenguajes como Java y PHP
+- [ ] Eso es incorrecto
+- [x] Eso es correcto
+
+(Mientras que la aserción 'same' comprobará que los dos elementos tengan la misma referencia de estancia, equals comprobará la igualdad de valores)
+
+Lanzar nuestros tests en paralelo nos permite..
+- [x] Optimizar la ejecución de nuestros tests
+- [ ] Evaluar la robustez de la infraestructura utilizada (BD, APIs...)
+- [ ] Ninguna de las anteriores es correcta
+
+(El hecho de lanzar los tests en paralelo y no en serie mejora considerablemente el rendimiento y la velocidad de ejecución de los tests)
+-

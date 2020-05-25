@@ -89,3 +89,17 @@ public function it_should_return_true_when_its_morning()
  * Esta interface nos va a permitir que en tiempo de test podamos mockear el valor que retornará la llamada al método now(), de tal modo que será posible emular que la llamada al checker se hace por la mañana o por la tarde en función de lo que queramos validar.
  * Cabe decir que lo ideal en este tipo de pruebas es generar una hora aleatoria dentro del rango que nos interese y así obtener poder cubrir todo el abanico de opciones en el mismo test case
  
+## Test
+
+Un motivo habitual por el que nuestros tests pueden fallar aleatoriamente es que estos...
+- [x] Tengan dependencias entre sí
+- [ ] Tengan dependencias entre sí
+
+(Cuando tenemos dependencia entre nuestros test cases, éstos fallarán si se ve afectado el orden de ejecución)
+
+Hacer uso de interfaces y sacar el estado fuera del caso de uso nos permite
+- [ ] No tener que hacer tests de integración
+- [ ] Testear la infraestructura en nuestros tests unitarios
+- [x] Ninguna de las anteriores es correcta
+
+(Extraer el estado y hacer uso de interfaces en nuestros casos de uso nos permite poder mockear diferentes escenarios en nuestros tests)

@@ -38,3 +38,28 @@ final class VideosSearcherShould extends UnitTestCase with VideoRepositoryMock {
 
 * En este ejemplo de test unitario, la ‘unidad’ se correspondería con el caso de uso, es decir, vamos a testear la entrada/salida al caso de uso así como la colaboración de las dependencias dentro de éste. Puesto que en él no nos interesa validar la integración con la infraestructura, lo que haremos será mockear la implementación del repositorio
   
+## Pirámide de test - Propuesta de estrategia para el día a día
+
+* La piramide relaciona la velocidad de los tests y la cobertura de los tests:
+
+ --> Aceptacion  : Los que tiene mas cobertura (ya que prueban todo el flujo), pero son los mas lentos de ejecutar
+ --> Integracion : En medio
+ --> Unitarios   : Son los mas rapidos de ejecutar, pero los que tiene mejor cobertura
+ 
+ * Por lo que habria que tener pocos tests de aceptacion, mas de integracion y muchos mas unitarios.
+ * Todos los tests particulares, se deberian hacer con los unitarios. Los de aceptación es mas para el happy-path.
+ 
+ ## Test
+ 
+ Asumir una relación 1-1 entre tests y clases suele derivar en...
+- [ ] Tests más robustos
+- [ ] Una menor cobertura del código
+- [x] Ninguna de las anteriores es correcta
+
+(Aunque puedan garantizarnos una mayor cobertura, este tipo de tests son mucho más dependientes de la implementación de cada clase y por ende más frágiles)
+
+Es recomendable mockear la infraestructura en nuestros tests de aceptación si no queremos vernos limitados por posibles respuestas asíncronas de la infraestructura.
+- [ ] Eso es correcto
+- [x] Eso es falso
+
+(Si bien es cierto que este tipo de tests son mucho más lentos, precisamente su objetivo probar el flujo completo de una petición lo más similar posible al entorno real)

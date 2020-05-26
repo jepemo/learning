@@ -36,7 +36,7 @@ alias revert='git reset --hard'
 ## Test
 
 Los tests pueden servirnos como 'documentacion' de nuestra aplicación
-- [ ] Eso es cierto
+- [x] Eso es cierto
 - [ ] Pero sólo los tests de aceptación
 - [ ] Eso es falso
 

@@ -108,8 +108,20 @@
         *   Implementación concreta de la interface antes descrita. Proveer de la lógica necesaria para interaccionar con la base de datos MySQL.
     *   Capa: Infraestructura
 
-## Unas preguntillas...
+## Test
+
+¿Qué elemento no tiene nada que ver con CQRS?
+- [ ] El CommandBus
+- [x] Un Repositorio
+- [ ] Una Query
+- [ ] Una Response
+
+CQRS significa...
+- [ ] Command Query Responsibility Saturation
+- [ ] Command Query Response Segregation
+- [x] Command Query Responsibility Segregation
+- [ ] Todas las anteriores son correctas
 
 ## TODO
 
-...
+Mirar ejemplo: https://github.com/CodelyTV/php-ddd-example

@@ -58,3 +58,10 @@ final class CalculatorShould {
 * Pirámide de tests: Velocidad y cobertura de los diferentes tipos de tests
 * CI/CD: Papel fundamental de los tests en estos procesos
 
+* Enonomia del Software
+* Integracion continua
+* Refactor in Peace (RiP)
+* QA? (en el caso de hacer los tests)
+* Te dan informacion sobre el codigo (hay demasiados colaboradores? etc.)
+
+

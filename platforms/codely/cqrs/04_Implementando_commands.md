@@ -37,7 +37,8 @@ class VideoLikePostController extends ApiController
     public function __invoke(Request $request)
     {
         $command = new CreateVideoLikeCommand(
-        
+            $id = $request["id"],
+            ...
         );
         // cargamos parametros (idvideolike, idvideo, iduser) en el command
         
@@ -90,3 +91,23 @@ final class VideoLikeCreateor
     }
 }
 ```
+
+## Test
+
+¿Qué debe hacer CommandHandler?
+- [ ] Recibir petición y ejecutar la lógica del caso de uso (VideoCreator)
+- [ ] Recibir petición, modelar objetos de dominio e invocar al caso de uso (VideoCreator)
+- [x] Recibir command, modelar objetos de dominio (VideoId, VideoTitle, etc) e invocar al caso de uso (VideoCreator)
+- [ ] Recibir command, modelar entidades del dominio (Video) e invocar al caso de uso (VideoCreator)
+
+Si cambia cómo ejecutamos un comando (el caso de uso a ejecutar, o pasarlo de síncrono a asíncrono) ¿qué deberíamos modificar?
+- [ ] El Controller
+- [ ] El Comand
+- [ ] La implementación del CommandBus
+- [ ] La implementación de CommandBus que inyectamos en el Controller
+- [ ] El CommandHandler
+- [ ] El UseCase/ApplicationService/Action
+- [ ] Todas las anteriores son correctas
+- [ ] De la 1 a la 5 son correctas
+- [ ] 1, 4 y 5 son correctas
+- [x] De la 3 a la 5 son correctas

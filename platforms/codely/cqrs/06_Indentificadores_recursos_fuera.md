@@ -21,3 +21,14 @@
   * etc.
   
   
+## Test
+
+¿Podemos usar identificadores secuenciales si éstos vienen desde el cliente?
+- [x] No
+- [ ] Sí
+
+(Desde el momento en el que es el cliente quien indica el identificador, sería muy difícil gestionar que éstos fueran secuenciales si tenemos un mínimo de peticiones concurrentes sin incurrir en condiciones de carrera. Por esto se suelen usar identificadores aleatorios como los UUID.)
+
+¿Es necesario aplicar CQRS en nuestra aplicación para poder usar este tipo de práctica?
+- [ ] Sí
+- [x] No

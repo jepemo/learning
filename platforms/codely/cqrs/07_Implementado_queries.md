@@ -51,3 +51,80 @@ public function __invoke(VideoId $id)
 }
 ```
 
+## Implementando nuestra primera Query
+
+* Pasos (casos de uso para obtener los comentarios de un video):
+  * Peticion GET "/videos/x/comments"
+  * VideCommentsGetController
+    * La query seria: FindVideoCommentsQuery
+  * La query se envia al QueryBus
+  * Crear un nuevo QueryHandler: FindVideoCommentsQueryHandler
+  * Nuevo caso de uso: VideoCommentsFinder
+    * Llama al servicio de dominio VideoComments que devuelve un VideoComments
+  * El handler lo convierte al VideoCommentsResponse
+* Implementacion:
+
+```php
+//...
+final class VideoCommentsGetController extends ApiController
+{
+    // videoId de la request
+    public function __invoke(string $videoId)
+    {
+        // Llama al querybus
+        return $this->ask(new FindVIdeoCommentsQuery($videoId));
+    }
+}
+
+// Ya en el codigo de aplicacion, es donde iria la query:
+// En module/videoComment/application/FindAll
+
+final class FindVideoCommentsQuery implements Query
+{
+    private $videoId;
+    
+    public function __construct(string $videoId)
+    {
+        $this->videoId = $videoId;
+    }
+    
+    public function videoId() : string
+    {
+        return $this->videoId;
+    }
+}
+
+// En el mismo directorio de "module/videoComment/application/FindAll" iria tambien el handler
+
+final class FindVideoCommentsQueryHandler
+{
+    private $finder;
+
+    public function __construct(VideoCommentsFinder $finder)
+    {
+        $this->finder = $finder;
+    }
+    
+    public function __invoke(FindVideoCommentsQuery $query)
+    {
+        $id = new VideoId($query->videoId());
+        return $this->finder->__invoke($id);
+    }
+}
+
+// Tambien en el mismo directorio iria el caso de uso
+final class VideoCommentsFinder
+{
+    private $repository;
+    
+    public function __construct(VideoCommentsRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+    
+    public function __invoke(VideoId $id)
+    {
+        $this->
+    }
+}
+```

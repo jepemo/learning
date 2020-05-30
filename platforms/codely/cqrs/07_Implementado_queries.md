@@ -102,13 +102,13 @@ final class FindVideoCommentsQueryHandler
 
     public function __construct(VideoCommentsFinder $finder)
     {
-        $this->finder = $finder;
+        $this->finder = pipe(new VideoCommentsReponseConverter(), $finder);
     }
     
     public function __invoke(FindVideoCommentsQuery $query)
     {
         $id = new VideoId($query->videoId());
-        return $this->finder->__invoke($id);
+        return apply($this->finder,  [$id]);
     }
 }
 
@@ -122,9 +122,60 @@ final class VideoCommentsFinder
         $this->repository = $repository;
     }
     
-    public function __invoke(VideoId $id)
+    public function __invoke(VideoId $id) : VideoComments
     {
-        $this->
+        // Usamos un search porque puede que no haya comentariso
+        return $this->repository->searchAll($id);
+    }
+}
+
+// El converter de la "lista" (tambien estaria en \Aplication\FindAll
+final class VideoCommentsResponseConverter
+{
+    public function __invoke(VideoComments $comments)
+    {
+        return new VideoCommentsResponse(
+            map(new VideoCommentReponseConverter(), $comments->values())
+        );
+    }
+}
+
+// Y el converter 
+final class VideoCommentReponseConverter
+{
+    public function __invoke(VideoComment $comment)
+    {
+        return new VideoCommentResponse(
+            $comment->id()->value(),
+            $comment->body()->value(),
+            $comment->videoId()->value()
+        );
     }
 }
 ```
+
+## Test
+
+¿Qué debe hacer QueryHandler?
+- [ ] Recibir petición y ejecutar la lógica del caso de uso (VideoFinder)
+- [ ] Recibir petición, modelar value objects de dominio (VideoId, VideoTitle, etc) e invocar al caso de uso
+- [ ] Recibir query, modelar value objects de dominio e invocar al caso de uso
+- [x] Recibir query, modelar value objects de dominio, invocar al caso de uso, y traducir su respuesta en un objeto DTO para devolverla al bus (VideoResponse)
+- [ ] Recibir query, modelar entidades del dominio (Video), invocar al caso de uso, y traducir su respuesta en un objeto DTO para devolverla al bus
+
+Si cambian los datos a retornar y tenemos que incorporar algún otro atributo del Video, ¿qué deberíamos modificar?
+- [ ] El Controller
+- [ ] La Query
+- [ ] La implementación del QueryBus
+- [ ] La implementación de QueryBus que inyectamos en el Controller
+- [ ] El QueryHandler
+- [ ] El caso de uso
+- [ ] La entidad Video
+- [ ] El VideoResponseConverter
+- [ ] La respuesta VideoResponse
+- [ ] Todas las anteriores son correctas
+- [ ] De la 1 a la 5 son correctas
+- [ ] De la 5 a la 8 son correctas
+- [ ] 1, 2, 7, 8 y 9 son correctas
+- [x] 7, 8 y 9 son correctas
+- [ ] 2, 7, 8 y 9 son correctas

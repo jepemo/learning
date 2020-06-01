@@ -2,7 +2,8 @@
 
 ## Intro
 
-* **Model-Driven Design**: Hace referencia a que modelemos desde nuestro contexto, es decir, dirigir nuestro diseño en base a los modelos. 
+### DDD: Tactic Patterns
+* **Model-Driven Design**: Hace referencia a que modelemos desde nuestro contexto, es decir, dirigir nuestro diseño en base a los modelos. Los modelos son los conceptos que se hablan en el negocio.
 * Expresar la semántica de Dominio en términos de:
   * **Services**
   * **Entities**

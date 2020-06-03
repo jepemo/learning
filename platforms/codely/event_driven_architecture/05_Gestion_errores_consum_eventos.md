@@ -37,4 +37,14 @@
   
 ## Eventos duplicados
 
-* 
+* se sacrifica la complejidad de asegurarse que solo se envia un evento, para ganar en rendimiento.
+* Soluciones:
+  * Let it crash (dejar que el evento duplicado acabe en la dead letter)
+    * El problema es que la "dead letter" se llena de mensajes que no se van a procesar.
+  * Mantener registro de los identificadores de eventos ya procesados
+    * El problema es que NO eliminariamos problemas al 100% (concurrencia)
+  * Idempotencia: Nos aseguramos de que la accion no se ha realizado antes.
+    * Esto da problemas cuando el cambio es un DELTA (habria que guardarse una fecha o algo)
+    * Complejo al gestionar datos de forma agregada (ejemplo: contadores)
+    * En estos casos podria interesar no utilizarse
+    

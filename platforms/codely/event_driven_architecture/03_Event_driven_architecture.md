@@ -74,3 +74,37 @@ trait VideoRepository {
     * Habra que suponer que cada servicio funciona bien a nivel individual y testar servicio por servicio.
     * Se asume la perdida de control de poder probar todo el ciclo completo
     * Se testea a nivel, si lleva un evento X a mi sistema entonces....
+
+## Cómo definir la estructura de nuestros eventos de dominio
+
+* Estructura de los eventos:
+* Sigue un formato que escojamos, por ejemplo JSON (json:api compliant):
+
+```json
+{
+  "data": {
+    "id": "event id",
+    "type": "domain_event_name";
+    "occurred_on": "date event has ocurred on",
+    "attributes": {
+      "id": "aggregate id",
+      "some_paremeter": "some value"
+    },
+    "meta" : {
+      "some_key": "some value",
+      "host": "machine hostname"
+    }
+  }
+}
+```
+
+* Esta estructura es bastante estandar y permite ser tolerante a cambios:
+  * Todo esta englobado en **data**.
+  * **id**: identificador a nivel de transporte (del evento en si), por ejemplo se usa para evitar que se publica dos veces.
+  * **type**: Tipo del evento. Ejemplo: "codelytv.video.1.event.video.publised". Siempre es en tiempo pasado, porque ya ha ocurrido.
+  * **ocurred_on**: Cuando ha pasado la accion. Elegir formato (de fecha) y siempre usar esa. (UTC)
+  * **attributes**: Ya campos del recurso del dominio, para el tipo de evento. 
+    * id: El id del recurso que se ha hecho la accion
+    * otros paretros que se usen
+  * **meta**: Metadatos que se necesiten: trazabilidad, que host lo ha hecho, ip, etc.
+

@@ -8,7 +8,7 @@ Repasaremos conceptos de SOLID aplicado al diseño a micro-nivel, y nos los llev
 * Viendo posibles etapas en la implementacion.
 * Etapa 1 (estado inicial)
 
-````scala
+```scala
 final class VideoCreator(repository: MySqlVideoRepository) {
     def create(id: VideoId, title: VideoTitle): Unit = {
         val video = Video(id, title);

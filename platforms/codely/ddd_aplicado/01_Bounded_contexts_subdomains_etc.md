@@ -68,13 +68,27 @@
 ## Estructura de carpetas en un monorepositorio
 
 * Usan un monorepo, es decir todas las aplicaciones y "bounded context" en el mismo arbol.
+* Backend no es solo la API. Es API mas consumidores, etc.
 * La estructura general:
-  * applications
+  * applications: tanto backend como frontend. Todos los puntos de entrada de nuestra aplicación
     * backoffice_backend
     * backoffice_frontend
     * mooc_backend
     * mooc_frontend
-  * src (bounded contexts)
+  * src (bounded contexts : recoger los distintos contextos de nuestra aplicación y sus correspondiente módulos)
+    * Backoffice
+      * Videos
+      * ...
+      * Shared
+    * Mooc
+      * Videos
+      * Courses
+      * Shared (DI BC/BBDD)
+      * ...
+      * Roadmap
+    * Shared (userId, codigo infraestructura compartida: BDConnection, etc.)
+      * Domain
+      * Infraestructure
   * test
     * applications
       * backoffice_backend
@@ -82,3 +96,13 @@
       * mooc_backend
       * mooc_frontend
     * src
+      * Backoffice
+      * Mooc
+        * Videos
+        * Courses
+        * Shared
+        * ...
+        * Roadmap
+      * Shared
+    
+    

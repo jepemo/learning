@@ -36,3 +36,25 @@
   * Tener la comunicacion en una direccion, sin tener que salir fuera para tener que llamar a otro sitio.
   
 * Ejemplo codigo: https://github.com/CodelyTV/php-ddd-example
+
+## Diferencias entre Bounded Contexts, Subdomains, Modules, y Shared Kernel
+
+* **Context Map**: "Mappea" los conceptos del dominio a los "Boounded Context"
+* **Subdomain**: Hace referencia exáctamente a lo mismo que los Bounded Contexts. Mientras que Subdomain estaría en el terreno de la problemática que queremos resolver, Bounded Context estaría en el terreno de la solución que damos a dicho problema.
+* **MicroServicio**: Es una práctica habitual desplegar aplicaciones como Microservicios. Aunque normalmente suele ir en relación 1 a 1 con los Bounded Contexts, también es posible que se relacionen 2 microservicios(Por ejemplo la parte backend y frontend) con un mismo "contexto".
+* **Shared Kernel**: Se trata de código compartido entre Bounded Contexts y entre Módulos dentro de un mismo Bounded Context (También podemos encontrarlo bajo el nombre de Common o Shared). Aquí dejaremos las cosas con la menor lógica posible para no generar acoplamiento en los contextos.
+* Tip: Si nos llevásemos un Bounded Context en otro proyecto distinto, tendríamos que llevarnos tanto ese Bounded Context como la carpeta de Shared Kernel
+
+
+|                                    | Framework coupled code | Modules | Bounded Contexts       | Microservices          |
+|------------------------------------|------------------------|---------|------------------------|------------------------|
+| Learning Curve                     | Low                    | Medium  | High                   | High++                 |
+| Teams autonomy                     | Low                    | Medium+ | High                   | High++                 |
+| Infrastructure                     | Shared & Coupled       | shared  | Isolated & distributed | Isolated & distributed |
+| Code maintainability/extensibility | Low--                  | High    | High+                  | High++                 |
+| Infrastructure complexity          | Low                    | Medium  | High                   | High++++               |
+
+
+
+
+

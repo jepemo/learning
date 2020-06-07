@@ -65,4 +65,20 @@
 * **Comunicación entre ellos**: En el caso del código acoplado, la comunicación será inevitablemente acoplada (Por ejemplo a través de Inyección de Dependencias). Por otro lado, la comunicación puede ser a través de Buses en el caso de Módulos y Bounded Contexts, o por medio de Buses distribuidos entre Microservicios
 * **Despliegue**: Respecto a nivel de Despliegue, el cambio se observa en el paso a Microservicios, donde será aislado para cada uno de ellos, lo cual nos permitirá una mayor escalabilidad (Se despliega una parte concreta de nuestra aplicación)
 
+## Estructura de carpetas en un monorepositorio
 
+* Usan un monorepo, es decir todas las aplicaciones y "bounded context" en el mismo arbol.
+* La estructura general:
+  * applications
+    * backoffice_backend
+    * backoffice_frontend
+    * mooc_backend
+    * mooc_frontend
+  * src (bounded contexts)
+  * test
+    * applications
+      * backoffice_backend
+      * backoffice_frontend
+      * mooc_backend
+      * mooc_frontend
+    * src

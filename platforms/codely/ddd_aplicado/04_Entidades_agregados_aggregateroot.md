@@ -130,3 +130,71 @@ public Review (
 * No obstante, aunque hemos hablado de los problemas de usarlos, recordemos que el Aggregate y el Aggregate Root nos van a ofrecer unos beneficios
   * Encapsulación, siguiendo Tell Don’t Ask, nos va a permitir que los clientes no se vean afectados si en algún momento quisieramos cambiar cómo funciona todo de forma interna
   * Mantener las restricciones de integridad síncronas que se establezcan dentro del agregado
+  
+## Aggregate root vs Entity: Ejemplo Video y VideoHighlight
+
+* El problema que tenemos en el siguiente curso es que el agregado ha crecido mucho. Tiene internamente entidades, que pueden dar problemas para recuperar, etc.
+* Por lo que al siguiente codigo, clase course:
+
+```java
+final public class Course extends AggregateRoot {
+    private final CourseId id;
+    private final CourseName name;
+    private final CourseRating rating;
+
+    public Course(CourseId id, CourseName name, CourseRating rating){
+        this.id = id;
+        this.name = name;
+        this.rating = rating;
+    }
+    // ...
+}
+```
+
+* Se tendra que extraer la clase Review a otro agregado:
+
+```java
+public final class Review extends AggregateRoot {
+    private final StudentId studentId;
+    private final CourseId courseId;
+    private final CourseReviewRating rating;
+    private final ReviewComment comment;
+
+    public Review(StudentId studentId, CourseId courseId,CourseReview Rating rating,ReviewComment comment){
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.rating = rating;
+        this.comment = comment;
+    }
+    // ...
+}
+```
+
+*  Ahora Review es un elemento independiente cuya relación con el Curso será simplemente a través de un courseId, de modo que ni el curso sabrá qué reviews tiene, ni las reviews sabrán a qué curso pertenecen, por lo que no necesitaremos levantar todo el curso de BD, sino solo el valor del identificador de ese curso (Relación entre clases por identificador)
+* Podemos ver en estas clases cómo estamos manteniendo dos Value Objects diferentes para el Rating, hemos decidido hacerlo de este modo porque podríamos querer que cada uno tuviera una lógica distinta, por ejemplo, computar el valor de CourseRating en base al valor de un CourseReviewRating
+* Agregados:
+  * Course (Agregado)
+    * Course (AggregateRoot)
+    * Id (VO)
+    * Rating ->  se ha calculado a partir de los rating de los "CourseReview"
+    * Summary (VO)
+    * Description (VO)
+  * CourseLesson (Agregado)
+    * CourseLesson (AggregateRoot)
+    * Id (VO)
+    * CourseId (VO)
+    * Title (VO)
+    * Description (VO)
+    * Duration (VO)
+    * Order (VO)
+    * Scheduled (VO)
+  * CourseReview (Agregado)
+    * CourseReview (AggregateRoot)
+    * Id (VO)
+    * Rating (VO)
+    * StudentId (VO)
+    * Comment (VO)
+    
+* Al igual que con las reviews del curso, también extraeremos las lecciones como Aggregate CourseLesson, de modo que nuestro Course queda como una clase mucho más pequeña y ‘tonta’, facilitándo así su mantenibilidad. Además, en términos transaccionabilidad, tener agregados más pequeños reducirá los posibles bloqueos en BD y hará que las consultas sean mucho más rápidas
+* El hecho de extraer estos agregados, podía generar algunos problemas, pero veremos que solución podemos darle a cada uno de ellos:
+

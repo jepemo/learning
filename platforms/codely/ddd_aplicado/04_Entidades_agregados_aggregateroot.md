@@ -198,3 +198,45 @@ public final class Review extends AggregateRoot {
 * Al igual que con las reviews del curso, también extraeremos las lecciones como Aggregate CourseLesson, de modo que nuestro Course queda como una clase mucho más pequeña y ‘tonta’, facilitándo así su mantenibilidad. Además, en términos transaccionabilidad, tener agregados más pequeños reducirá los posibles bloqueos en BD y hará que las consultas sean mucho más rápidas
 * El hecho de extraer estos agregados, podía generar algunos problemas, pero veremos que solución podemos darle a cada uno de ellos:
 
+### Asegurando consistencia en CourseLessons
+
+* Validar orden entre lecciones: Aquí al ser una validación que debemos ejercer previamente a ejecutar el caso de uso ya que si no, éste no se debería poder llevar a cabo, haremos la consulta de forma previa encapsulándola en un **Domain Service**.
+  * Para comprobar que no se insertaran dos lecciones con el mismo "orden", este por ejemplo, recuperaria todas las lecciones y comprobaria que se valida esta condicion. 
+  * En vez de coordinar esto en el agregado, se haria con el "domain service".
+  
+
+### Asegurando consistencia en Course
+
+* Incrementar total steps y videos: Aquí la estrategia será gestionar este tipo de tareas y cómputos de forma asíncrona por medio de **Eventos de Dominio** que nos permitan además una mayor performance a la hora de recuperar la información de BD
+
+### Estructura
+* src/Mooc
+  * Reviews
+  * Courses
+    * Application
+      * Create
+        * CourseCreator.x
+        * CreateCourseCommand.x
+        * CreateCourseCommandHandler.x
+    * Domain
+      * Course.x
+      * CourseCreatedDomainEvent.x
+      * CourseDescription.x
+      * CourseRepository.x
+      * CourseTitle.x
+    * Infraestructure
+      * Persistence
+        * CourseRepositoryMySql.x
+* Finalmente, estos agregados estarían contenidos en un módulo (normalmente la relación será de un módulo por cada agregado, con lo que respetaremos el SRP de SOLID). Dentro de cada módulo, a su vez, encontraremos los directorios de Application, Domain e Infraestructure siguiendo el diseño de Arquitectura Hexagonal
+* A nivel Bounded Context:
+  * MOOC (BC)
+    * Courses (modulo)
+      * Courses (Agregado)
+    * CourseReview (modulo)
+      * CourseReview (agregado)
+    * CourseLessons (modulo)
+      * ...
+    * Students (Modulo)
+      * ...
+    * Paths (modulo)
+    * Roadmap (modulo)

@@ -98,7 +98,7 @@ final class StudentSignUpper
 
 * El ejemplo que teniamos antes, esta usando la implementacion concreta:
 
-````php
+```php
 final class StudentSignUpper
 {
     private $repository; 
@@ -146,3 +146,95 @@ final class StudentSignUpper
 * Lo importante de todo esto es que el cómo definimos las interfaces venga establecido por los clientes, las interfaces cumplen con un rol, en este caso el de ser el repositorio de Student, y deben ser agnósticas a cualquier implementación que haya por debajo. No son Header Interfaces a nivel de generar unas interfaces en base a las cabeceras de las implementaciones
 * A modo de síntesis podemos condensar la idea que queremos transmitir en este video en que Las interfaces pertenecen a los clientes, para evitar Leaks de infraestructura en nuestra aplicación, lo mejor es no conocer la infraestructura.
 * [El Arte del Patadón Pa’lante](https://youtu.be/AQK_YgFj7Ng) Presentación de Eduardo Ferro acerca de la importancia de postergar las decisiones de detalles de implementación al último momento responsable
+
+## Comunicar modules y Bounded Contexts: Repositories vs Application Service
+
+### Comunicación entre Modules y BC via AS vs Repos
+
+* Pros y contras de inyectar repositorios / servicios
+
+#### Inyectando VideoRepository
+
+* En el primer caso, se esta inyectado el repositorio de otro dominio (Video) en este (VideoComment).
+* Codigo:
+
+```php
+public class VideoCommentPublisher
+{
+    private $videoCommentRepository;
+    private $videoRepository
+    private $publisher;
+
+    public function __construct(VideoCommentRepository $videoCommentRepository, VideoRepository $videoRepository, DomainEventPublisher $pubblisher)
+    {
+        $this->$videoCommentRepository = $videoCommentRepository;
+        $this->videoRepository = $videoRepository;
+        $this->publisher = $publisher;
+
+    }
+
+    public function publish(VideoCommentId $id, VideoId $videoiD, VideoCommentContent $content)
+    {
+        $this->ensureVideoExist($videoId);
+
+        $comment = VideoComment::publish($id, $videoId, $content);
+
+        $this->repository->sasve($comment)
+
+        $this->publisher->publish(...$comment->pullDomainEvents())
+    }
+
+    private function ensureVideoExist(VideoId $id): void
+    {
+        $video = $this->videoRepository->search($id)
+
+        if(null ==== $video)
+        {
+            throw new VideoNotFound($id)
+        }
+    }
+}
+```
+
+* En una primera iteración vamos implementar el método ensureVideoExist inyectando el repositorio. Pero ¡ojo! 👀 estamos inyectando el repositorio de Video, referenciando desde un módulo al dominio de otro módulo
+* Como pros de esta implementación tendremos, para empezar, que ya tendríamos completada la feature propuesta y podremos comprobar si el video existe. Sin embargo, estaríamos duplicando esta lógica en distintos puntos del código. Además, otro problema con esta implementación es que estamos generando un mayor acoplamiento con otros módulos (recordemos que nuestro objetivo es que Bounded Contexts y Módulos sean fácilmente modificables)
+
+#### Inyectando VideoFinder
+
+* Codigo:
+
+```php
+public class VideoCommentPublisher
+{
+    private $repository;
+    private $finder
+    private $publisher;
+
+    public function __construct(VideoCommentRepository $repository, VideoFinder $finder, DomainEventPublisher $pubblisher)
+    {
+        $this->$repository = $repository;
+        $this->finder = $finder;
+        $this->publisher = $publisher;
+
+    }
+
+    public function publish(VideoCommentId $id, VideoId $videoiD, VideoCommentContent $content)
+    {
+        $this->ensureVideoExist($videoId);
+
+        $comment = VideoComment::publish($id, $videoId, $content);
+
+        $this->repository->sasve($comment)
+
+        $this->publisher->publish(...$comment->pullDomainEvents())
+    }
+
+    private function ensureVideoExist(VideoId $id): void
+    {
+        $this->finder->__invoke($id)
+    }
+}
+```
+
+* Aunque sigue habiendo acoplamiento con el módulo de Video, el hecho de inyectar el Servicio de Dominio nos hace ganar en términos de no tener la lógica duplicada en diferentes puntos
+* Por otro lado, estas iteraciones nos estan dejando ver que VideoId es un candidato perfecto para ser empujado a Shared puesto que estamos haciendo uso de él desde distintos módulos. En el caso de que fueramos a seguir compartiendo VideoFinder entre distintos módulos, también sería un buen candidato, pero como veremos en los siguientes videos, dejaremos de llamar a este servicio desde otros módulos distintos a Video.

@@ -240,3 +240,26 @@ public final class Review extends AggregateRoot {
       * ...
     * Paths (modulo)
     * Roadmap (modulo)
+
+## Fallando miserablemente modelando Agregados
+
+* El ejemplo que explican, es en un proyecto, de una Web/Tienda de Vinos, tenian que modelar el menu (que tiene filtros, categorias, etc). Por lo que se definio como Agregado el "Menu" y como agregateRoot "menu". A su vez este tendria: idioma, tab, los tab tendrian "Filter" y estos los links.
+* Ejemplo:
+  * Menu (Aggretate)
+    * Menu (AggregateRoot)
+      * Tab (Entidad)
+        * Filter (Entidad)
+          * Link (VO)
+* Para añadir un link, hay que hacer mucha logica. Además de todas las operaciones de gestionar: Tabs, filtros, etc.
+* Que fallo?
+  * ¿CRUD era suficiente?
+    * Distintas representaciones del menú en distintos idiomas con reglas complejas
+    * Es decir, habia mucha logica por debajo, por lo que mejor no utilizar CRUD.
+  * ¿Se podría haber evitado niveles de encapsulación?
+    * Validación no más de X elementos dependiente de otros
+    * No por evento (acción ya realizada)
+    * Si por query/caso de uso
+  * ¿Y entonces tendríamos N consultas?
+    * ¡Read Model!
+    
+    

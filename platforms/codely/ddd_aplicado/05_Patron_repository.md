@@ -139,6 +139,7 @@ final class StudentSignUpper
 }
 ```
 
+
 * Este acoplamiento que teníamos de Infraestructura dentro del Application Service, además de suponer un ‘smell’, nos suponía una falta de tolerancia al cambio y un alto coste de Entrada/Salida a BD en tiempo de Test. Gracias a este refactor si que podremos mockear esa Entrada/Salida, por lo que nuestros tests se ejecutarán mucho más rápido y se limitarán a comprobar que el comportamiento sea correcto.
 * Pero no se trata simplemente de extraer una interface para invertir esas dependencias, a nivel estructural tampoco debemos mantenernos acoplados por unas firmas de métodos que estén condicionadas por implementaciones concretas (como podría ser pasar por parámetro una key porque estemos pensando en una implementación con Redis), puesto que el cliente no tiene que conocer los detalles de nuestra implementación
 * Algo que nos ayudará a hacer que los métodos del Repositorio sean agnósticos a la implementación es el uso del Patrón Criteria que vimos en el curso de SOLID

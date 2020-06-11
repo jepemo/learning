@@ -66,6 +66,7 @@
     
 **[1]**
 Por ejemplo, para crear un recurso de forma asincrona:
+
 1. Cliente hace una request al endpoint de registrar un usuario.
   1. En esta petición además de los valores para registrar un usuario el cliente manda un "request_id"
 2. El controller hace una validación simple de la request

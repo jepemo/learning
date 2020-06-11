@@ -68,11 +68,11 @@
 Por ejemplo, para crear un recurso de forma asincrona:
 
 1. Cliente hace una request al endpoint de registrar un usuario.
-  1. En esta petición además de los valores para registrar un usuario el cliente manda un "request_id"
+	1. En esta petición además de los valores para registrar un usuario el cliente manda un "request_id"
 2. El controller hace una validación simple de la request
-  1. Si no cumple el formato devuelve un 400 Bad Request y se corta el flujo
-  2. Si todo va bien seguimos
+	1. Si no cumple el formato devuelve un 400 Bad Request y se corta el flujo
+	2. Si todo va bien seguimos
 3. El controller publica el Comando de registrar el usuario al bus asíncrono y devuelve un 202 Request Accepted (que no es lo mismo que un 200 todo OK)
 4. A partir de ahora depende un poco de cómo tengamos montado el cliente:
-  1. Podemos tener un endpoint que sea `/command/status/{request_id}` al cuál cada X timepo le vamos preguntando por la llamada que hemos hecho antes para saber su estado
-  2. Lo mismo pero en lugar de un endpoint utilizando un socket o mercure.
+	1. Podemos tener un endpoint que sea `/command/status/{request_id}` al cuál cada X timepo le vamos preguntando por la llamada que hemos hecho antes para saber su estado
+	2. Lo mismo pero en lugar de un endpoint utilizando un socket o mercure.

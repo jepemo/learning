@@ -17,4 +17,83 @@
   
   ## Monorepo en PHP
   
-  * 
+* Repo ejemplo: https://github.com/CodelyTV/php-ddd-example/
+* Utilizan "Composer" como gestor de dependencias
+* Un fichero "composer.json" general:
+  * Definen las dependencias de todos los contextos
+  * Esta en el primer nivel
+  * Pero permite gestionar todas las dependencias desde un mismo sitio
+  * El problema es que las dependencias se cargarán en cada contexto, las necesite o no
+  * Pero evitamos que el IDE se vuelva loco buscando la implementación correcta
+* Un fichero composer.json por contexto
+  * La actualización de piezas de nuestra aplicación es independiente entre contextos
+  * En cada contexto se cargarán solo las dependencias que utiliza
+* Directorios:
+
+```
+src
+|--Shared
+    |--Infrastructure
+        |--Bundle
+            |--DependencyInjection
+            |   |--Compiler
+            |   |--Resources
+            |   |   |--infrastructure_config.yml
+            |   |   |--...
+            |   |   |--infrastructure_services.yml
+            |   |--CodelyTvInfrastructureExtension.php
+            |--CodelyTvInfraestructureBundle.php
+```
+
+* El framework es parte de la infraestructura
+  * Por ello esta dentro del directorio
+* Por ejemplo:
+
+```php
+final class CodelyTvInfrastructureExtension extends Extension
+{
+    public function load(array $config, ContainerBuilder $container): void
+    {
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources'));
+        $loader->load('infrastructure_extension.yml');
+        $loader->load(sprintf('infrastructure_config_%s.yml', $container->getParameter('kernel.environment')));
+    }
+}
+```
+
+* El fichero de extensión del Bundle nos permitirá cargar aquellos recursos .yml que necesitamos.
+* Una de las características de Symfony es que cuando tenemos un Bundle, buscará en ese nivel de directorio la carpeta DependencyInjection/ y dentro de esta un fichero con igual nombre pero acabado en ‘Extension’ para cargarlo auto-mágicamente
+* Definicion bunble:
+
+```yaml
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  CodelyTv\Shared\:
+    resource: '../../../../../*'
+    exclude:
+      - '../../../../../utils.php'
+      - '../../../../../Infrastructure/Api/*'
+
+  CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [!tagged codely.mooc.subscriber]
+
+  CodelyTv\Shared\Infrastructure\RabbitMQ\RabbitMQConnection:
+    arguments:
+      - '%rabbitmq_connection_parameters%'
+
+  codely.infrastructure.async_command_bus:
+    class: CodelyTv\Shared\Infrastructure\Bus\Command\CommandBusAsync
+    arguments:
+      $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
+    lazy: true
+```
+
+* Dentro de estos ficheros de configuración que estamos cargando, infrastructures_services.yml es el que nos va a permitir hacer el autowiring de todas las clases que le especifiquemos.
+* En este caso aquellas con el prefijo CodelyTv\Shared y que se encuentren dentro del directorio indicado.
+* Esta configuración afecta a los servicios declarados en este fichero, pero si tenemos otro Bundle en otro Bounded Context tendremos que repetir la configuración definida en _services: defaults si queremos que también haya autowiring
+* Aunque con este procedimiento de base cargará como servicios clases que no lo son, Symfony en la fase de “compilación” comprueba qué clases no se están inyectando para eliminarlas
+  
+  

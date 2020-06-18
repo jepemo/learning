@@ -76,3 +76,11 @@ Por ejemplo, para crear un recurso de forma asincrona:
 4. A partir de ahora depende un poco de cómo tengamos montado el cliente:
 	1. Podemos tener un endpoint que sea `/command/status/{request_id}` al cuál cada X timepo le vamos preguntando por la llamada que hemos hecho antes para saber su estado
 	2. Lo mismo pero en lugar de un endpoint utilizando un socket o mercure.
+	
+### DDD y CQRS: Preguntas Frecuentes
+
+https://codely.tv/blog/screencasts/ddd-cqrs-preguntas-frecuentes/
+o
+https://www.youtube.com/watch?v=auEhX4WfCRA
+
+

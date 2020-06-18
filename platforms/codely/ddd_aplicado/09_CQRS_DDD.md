@@ -80,7 +80,9 @@ Por ejemplo, para crear un recurso de forma asincrona:
 ### DDD y CQRS: Preguntas Frecuentes
 
 https://codely.tv/blog/screencasts/ddd-cqrs-preguntas-frecuentes/
+
 o
+
 https://www.youtube.com/watch?v=auEhX4WfCRA
 
 

@@ -52,6 +52,9 @@ Explican los cursos que se tendrian que hacer antes de este curso:
     - main
       - tv.codely.mooc
         - videos
+          - application
+          - domain
+          - infrastructure
         - courses
         - shared
         - ...
@@ -59,6 +62,9 @@ Explican los cursos que se tendrian que hacer antes de este curso:
     - test
       - tv.codely.mooc
         - videos
+          - application
+          - domain
+          - infrastructure
         - courses
         - shared
         - ...
@@ -70,3 +76,24 @@ Explican los cursos que se tendrian que hacer antes de este curso:
     - main
     - test
 ```
+
+## Monorepo multiproyecto con Gradle
+
+- Utilizan gradle porque simplifica mas que maven
+- La idea es que al levantar una aplicacion teiene que empaquetar todos los subproyectos (BC)
+- En "settings.gradle":
+
+```groovy
+rootProject.name = 'java-ddd-skeleton'
+
+include ":shared"
+project(':shared').projectdir = new File("src/shared')
+
+include ":backoffice"
+project(':backoffice').projectdir = new File("src/backoffice')
+
+include ":mooc"
+project(':mooc').projectdir = new File("src/mooc')
+```
+
+- Luego en el "build.gradle" es donde se definen las dependencias, version java

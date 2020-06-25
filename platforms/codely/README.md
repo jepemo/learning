@@ -6,6 +6,6 @@ Objetivo:
 - [x] [CQRS](./cqrs/)
 - [x] [Comunicación entre microservicios (Event-Driven Architecture)](./event_driven_architecture/)
 - [x] [Domain-Driven Design - DDD Aplicado](./ddd_aplicado/)
-- [ ] DDD en Java
+- [ ] [DDD en Java](./ddd_java/)
 - [ ] [CQRS + Event Sourcing](./cqrs_eventsourcing/)
 

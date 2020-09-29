@@ -44,3 +44,99 @@ final class Request {
 ```
 
 * En Spring la forma mas "limpa" de capturar los parametros del body es crear un objeto "Request" con los nombres de los mismos campos.
+
+## Implementación del test unitario y caso de uso
+
+* Implementacion del test unitario del servicio, para poder reutilizarlo sea quien sea el cliente HTTP, CLI, etc.
+* Crear los directorios para la logica: tv.codely.mooc.courses.{application, domain, infraestructure}. Lo anterior estaba en las "apps".
+* En "aplication" creamos el directorio "create", para este caso de uso.
+* Luego la clase "CourseCreator"
+
+```java
+@Service
+public final class CourseCreator {
+    private final CourseRepository repository;
+
+    public CourseCreator(CourseRepository repository) {
+        this.repository = repository;
+    }
+
+    public void create(String id, String name, String duration) {
+        Course course = Course.create(id, name, duration);
+
+        repository.save(course);
+    }
+}
+```
+
+* En el controlador, se inyectaria el "CourseCreator":
+
+```java
+public final class CoursesPutControler
+{
+    private CourseCreator creator;
+    
+    public CoursesPutController (CourseCreator creator) {
+        this.creator = creator;
+    }
+    
+    @PutMapping(value = "/courses/{id}")
+    public ResponseEntity create(
+        @PathVariable String id,
+        @RequestBody Request request
+    ){
+        creator.create(id, request.name(), request.duration());
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+}
+```
+
+* En el dominio, creamos el repositorio (CourseRepository):
+
+```java
+public interface CourseRepository
+{
+    void save(Course course);
+}
+
+// Tambien la entidad
+public final class Course
+{
+ private String id;
+ private String name;
+ private String duration;
+ 
+ public static Course create(String id, String name, String duration)
+ {
+    return new Course(id, name, duration);
+ }
+ 
+ // getters (se initializa por constructor)
+}
+```
+
+* Y el test:
+
+```java
+
+final class CourseCreatorShould
+{
+    @Test
+    void save_a_valid_course() throws Exception 
+    {
+        CourseRepository courseRepository = Mock(CourseRepository.class);
+        CourseCreator creator = new CourseCreator(courseRepository);
+        
+        Course course = new Course("some-id", "some-name", "some-duration");
+        
+        creator.create(course.id(), course.name(), course.duration());
+        
+        // Comprueba que se ha llamado almenos una vez a un metodo del repository
+        verify(repository, atLeatOnce()).save(course);
+    }
+}
+```
+
+
+
+

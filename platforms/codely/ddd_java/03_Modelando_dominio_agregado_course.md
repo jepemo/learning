@@ -56,3 +56,45 @@ public abstract class Identifier implements Serializable {
 * Puesto que se trata de un patrón que va a repetirse en los identificadores de nuestros agregados, lo que haremos será sacar esta lógica a una clase abstracta Identifier en la carpeta Shared que ahora implementará nuestro CourseId (En el resultado final de esta clase, se ha añadido la interface Serializable para poder serializarla a formato Json)
 * El hecho de que el atributo de clase sea un String y no directamente un UUID puede ser objeto de discusión y al final es algo que debe consensuar el equipo, pero si que es importante el hecho de evitar filtraciones de los detalles de la implementación, es decir, debemos evitar exponer (en el getter o el constructor de la clase) el tipo de datos que estamos wrappeando y en su lugar trabajar con datos primitivos tanto a la entrada como a la salida. Además, encapsular estos detalles nos facilitará muchísimo el trabajo si en algún momento tuviéramos la necesidad de modificarlos
 
+## Value Objects: Immutabilidad y tips para agilizar desarrollo
+
+* Ya que hemos visto cómo pasar nuestros identificadores a Value Objects, terminaremos esta lección siguiendo los mismos pasos con los demás atributos de nuestro Curso, añadiéndoles mayor semántica y permitiendo llevar a estos la lógica de validación.
+* A diferencia del UUID, que nos interesa mantener compartido dentro del Shared Kernel al tratarse de una pieza que usaremos en la comunicación entre distintos módulos y contextos, querremos que los atributos CourseId y CourseDuration se mantengan dentro del módulo y evitar compartir su lógica. Ya que tendremos múltiples Value Objects en cada Bounded Context, nos va a interesar que su creación sea un proceso ágil 
+* Clase CourseName:
+
+```java
+public final class CourseName extends StringValueObject {
+    public CourseName(String value) {
+        super(value);
+    }
+
+}
+```
+
+* El modificar directamente los argumentos que recibía el agregado Course de Strings a Value Objects y permitir que sea el propio IDE quien nos ayude a generar estas clases va a facilitarnos mucho la tarea, pero por supuesto es algo abierto al gusto de cada uno
+* Ambos Value Objects encapsulan un atributo de tipo String, así que tal como vimos en el caso del UUID, también nos interesará hacer uso de la herencia y que extiendan de una clase padre StringValueObject En este caso no le vemos tanto sentido a extraerlo a un servicio y hacer uso de la composición (puesto que no tocamos Entrada/Salida de datos ni tratamos de abstraernos de algo que pueda cambiar en el futuro). Será interesante igualmente este tipo de jerarquía con otros Value Objects de distinto tipo (ej: IntValueObject)
+* La clase StringValueObject nos encapsulará tanto la validación de que estamos recibiendo realmente un valor de tipo String como la implementación del método equals() que podremos utilizar para comparar por valores como veíamos previamente en los tests
+* Al modificar el tipo de parámetros que recibe Course tendremos que modificar también aquellos puntos en nuestros tests donde estuviéramos instanciando esta clase, veremos en el siguiente video cómo hacer que nuestros tests sean menos frágiles a este tipo de cambios
+
+## Test
+
+* El hecho de recibir DTOs en el caso de uso nos permite...
+- [x] Desacoplar el Controller de la capa de Aplicación
+- [ ] Enviar mayor cantidad de parámetros
+- [ ] Empujar las validaciones hasta el Controller
+
+(Los DTOs son objetos planos para la comunicación entre clases/capas que nos ayudarán a desacoplar los controladores de los servicios de aplicación)
+
+* Los Value Objects no exponen un metodo público setter del atributo que envuelven
+- [ ] Incorrecto
+- [ ] Sólo en el caso de los UUIDs
+- [x] Correcto
+
+(Los Value Objects deben ser inmutables, por lo que sólo se asigna valor al atributo envuelto desde el constructor y sólo si pasan la cláusula de guarda)
+
+* Una de las ventajas que nos aporta el uso de Value Objects es...
+- [ ] Encapsulacion de validaciones a nivel de Aplicación
+- [x] Encapsulación de validaciones a nivel de Dominio
+- [ ] Encapsulación de validaciones en el agregado
+
+(Los Value Objects nos permiten empujar al Dominio ciertas validaciones como el tipo de dato recibido, que un string cumpla con cierta expresión regular o que el número recibido sea un valor positivo)

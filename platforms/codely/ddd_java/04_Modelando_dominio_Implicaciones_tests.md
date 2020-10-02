@@ -82,3 +82,23 @@ public abstract class CoursesModuleUnitTestCase extends UnitTestCase {
 * En el caso de los Tests Unitarios también hemos extraído a una clase ‘base’ aquellos elementos que serán comunes para todos los casos de uso de un mismo módulo y que por tanto tendremos que lanzar en cada uno de ellos, como puede ser el mockear el repositorio al inicio de cada Testcase. De este modo nuestros tests unitarios quedan también mucho más limpios y semánticos 
 * Seguir estas técnicas y manteniendo nuestros tests lo más acotados posible obtendremos beneficios como la reutilización de código y mayor semántica. 
 
+## Test 
+
+* El patrón ObjectMother nos permite agrupar nuestros agregados bajo una entidad 'Mother' de la que hereden
+- [ ] Correcto
+- [x] Falso
+
+(Lo que nos permite el patrón ObjectMother es disponer de una factoría desde la cual crear instancias de un objeto en cuestión y utilizarlas en tiempo de tests)
+
+* Añadir ObjectMothers en nuestros tests nos aporta..
+- [x] Mayor aleatoriedad en las pruebas y tests mas semánticos
+- [ ] Menor control de excepciones derivadas de la instanciación de entidades
+- [ ] Ninguna de las anteriores es correcta
+
+(Además de ganar aleatoriedad en la instanciación de Value Objects y Agregados, conseguimos que los tests estén más libres de ruído y quedan mas claros los detalles importantes)
+
+* Hay casos en los que puede beneficiarnos el uso de la herencia en nuestros tests
+- [ ] Falso, nunca deberíamos utilizar la herencia en nuestros tests
+- [x] Cierto, puede proporcionarnos mayor semántica
+
+(La herencia puede permitirnos extraer a una clase padre todos los elementos comunes a los tests de un módulo, como mockear el repositorio al inicio de cada test, y que éstos se queden más limpios y semánticos )

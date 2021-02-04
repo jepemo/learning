@@ -1,6 +1,7 @@
 # Roadmap
 
 - [ ] [01 Internet](./01_internet.md)
+- [ ] [02 Basic Frontend](./02_basic_frontend.md)
 
 ## Other
 

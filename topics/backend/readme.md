@@ -2,7 +2,19 @@
 
 - [ ] [01 Internet](./01_internet.md)
 - [ ] [02 Basic Frontend](./02_basic_frontend.md)
-- [ ] [03 OS/Networking](./03_OS_Networking.md)
+- [ ] [03 OS/Networking](./03_os_networking.md)
+- [ ] [04 Programming language](./04_prog_language.md)
+- [ ] [05 Version control](./05_version_control.md)
+- [ ] [06 Relational databases](./06_relational_dbs.md)
+- [ ] [07 NOSQL databases](./07_nosql_dbs.md)
+- [ ] [08 Database concepts](./08_database_concepts.md)
+- [ ] [09 APIS](./09_apis.md)
+- [ ] [10 Authentication](./10_auth.md)
+- [ ] [11 Caching](./11_caching.md)
+- [ ] [12 Web Security](./12_web_security.md)
+- [ ] [13 Testing](./13_testing.md)
+- [ ] [14 CI/CD](./14_ci_cd.md)
+- [ ] [15 Development principles](./15_dev_principles.md)
 
 ## Other
 

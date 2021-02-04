@@ -2,6 +2,7 @@
 
 - [ ] [01 Internet](./01_internet.md)
 - [ ] [02 Basic Frontend](./02_basic_frontend.md)
+- [ ] [03 OS/Networking](./03_OS_Networking.md)
 
 ## Other
 

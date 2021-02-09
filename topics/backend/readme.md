@@ -15,6 +15,15 @@
 - [ ] [13 Testing](./13_testing.md)
 - [ ] [14 CI/CD](./14_ci_cd.md)
 - [ ] [15 Development principles](./15_dev_principles.md)
+- [ ] [16 Architectura patterns](./16_arch_patterns.md)
+- [ ] [17 Search Engines](./17_search_engines.md)
+- [ ] [18 Message Brokers](./18_message_brokers.md)
+- [ ] [19 Containers/Virtualization](./19_containers_vms.md)
+- [ ] [20 GraphQL](./20_graphql.md)
+- [ ] [21 Graph Databases](./21_graph_dbs.md)
+- [ ] [22 Web Sockers](./22_websockets.md)
+- [ ] [23 WebServers](./23_webservers.md)
+- [ ] [24 Building for Scale](./24_building_scale.md)
 
 ## Other
 

@@ -5,13 +5,25 @@
   "main": "app.js",
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint . --quiet"
+    "lint": "eslint . --quiet",
+    "dev": "parcel index.html"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^8.1.0",
+    "parcel": "^1.12.3",
     "prettier": "^2.4.1"
-  }
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ]
 }

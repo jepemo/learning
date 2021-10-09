@@ -166,3 +166,9 @@ dkms.conf
 udemy/Python_for_Finance/venv
 
 *node_modules*
+.vscode
+coverage/
+.DS_Store
+.env
+dist/
+.cache/

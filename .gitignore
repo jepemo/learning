@@ -164,3 +164,5 @@ udemy/Python_for_Finance/venv
 Mkfile.old
 dkms.conf
 udemy/Python_for_Finance/venv
+
+*node_modules*

@@ -1,0 +1,17 @@
+{
+  "name": "01_js_tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --quiet"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "^2.4.1"
+  }
+}

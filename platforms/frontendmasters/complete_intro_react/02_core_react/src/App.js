@@ -1,6 +1,5 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
-// import Pet from "./Pet";
 import SearchParams from "./SearchParams";
 
 const App = () => {
@@ -8,11 +7,13 @@ const App = () => {
     <div>
       <h1>Adopt Me!</h1>
       <SearchParams />
-      {/*<Pet name="Luna" animal="Dog" breed="Havanese" />
-      <Pet name="Machete" animal="Bird" breed="Crown" />
-      <Pet name="Aixa" animal="Cat" breed="Siames" />*/}
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById("root")
+);

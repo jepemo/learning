@@ -1,13 +1,16 @@
 from typing import Callable, Dict, List
 import inspect
 
+
 def get_caller_globals():
     return inspect.stack()[2][0].f_globals
+
 
 def read_data(day: int, parser=int, sep='\n', test=False) -> list:
     filepath = f'data/test{day}.txt' if test else f'data/input{day}.txt'
     sections = open(filepath).read().rstrip().split(sep)
     return [parser(section) for section in sections]
+
 
 def do(day: int, data: list, answers=[], test=False) -> Dict[int, int]:
     g = get_caller_globals()
@@ -15,7 +18,7 @@ def do(day: int, data: list, answers=[], test=False) -> Dict[int, int]:
     for currentPart in [1, 2]:
         fname = f'day{day}_{currentPart}'
         if fname in g:
-            result = g[fname](data)
+            result = g[fname]([d for d in data])
             results.append(result)
 
     pref = "TEST=" if test else "FINAL="

@@ -4,6 +4,15 @@ enum IpAddr {
     V6(String),
 }
 
+fn check(opt: Option<i32>) -> () {
+    match opt {
+        Some(a) => dbg!(a),
+        None => dbg!("None"),
+    }
+
+    return ();
+}
+
 fn main() {
     let home = IpAddr::V4(127, 0, 0, 1);
 
@@ -11,4 +20,6 @@ fn main() {
 
     dbg!(home);
     dbg!(loopback);
+
+    check(Some(1));
 }

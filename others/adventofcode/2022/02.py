@@ -31,35 +31,23 @@ game_result = {
 def get_score(opponent, you):
     return symbol_score[you] + game_result[opponent + you]
 
+
 # X lose, Y draw, and Z win
-
-
-def get_symbol(opponent, result):
-    if result == "Y":
-        if opponent == "A":
-            return "X"
-        elif opponent == "B":
-            return "Y"
-        elif opponent == "C":
-            return "Z"
-    elif result == "X":  # Lose
-        if opponent == "A":
-            return "Z"
-        elif opponent == "B":
-            return "X"
-        elif opponent == "C":
-            return "Y"
-    elif result == "Z":  # win
-        if opponent == "A":
-            return "Y"
-        elif opponent == "B":
-            return "Z"
-        elif opponent == "C":
-            return "X"
+game_symbol = {
+    "YA": "X",
+    "YB": "Y",
+    "YC": "Z",
+    "XA": "Z",
+    "XB": "X",
+    "XC": "Y",
+    "ZA": "Y",
+    "ZB": "Z",
+    "ZC": "X",
+}
 
 
 def get_score_2(opponent, result):
-    symbol = get_symbol(opponent, result)
+    symbol = game_symbol[result + opponent]
     return symbol_score[symbol] + game_result[opponent + symbol]
 
 

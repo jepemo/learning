@@ -13,38 +13,6 @@ class Noop:
     pass
 
 
-# class Machine:
-#     def __init__(self, instructions):
-#         self.instructions = instructions
-#         self.register = 1
-#         self.cycle_num = 0
-#         self.current = None
-
-#     def cycle(self):
-#         if len(self.instructions) == 0:
-#             return -1
-
-#         self.cycle_num += 1
-#         # print("->", self.cycle_num, len(self.instructions),
-#         #       self.current, self.register)
-#         if self.current != None:
-#             if self.current.num_cycles > 0:
-#                 self.current.num_cycles -= 1
-#                 if self.current.num_cycles == 0:
-#                     if isinstance(self.current, Add):
-#                         self.register += self.current.value
-#                     if len(self.instructions) > 0:
-#                         self.current = self.instructions.pop(0)
-#         else:
-#             self.current = self.instructions.pop(0)
-#             self.current.num_cycles -= 1
-
-#         return self.cycle_num
-
-#     def get_register(self):
-#         return self.register
-
-
 class Machine:
     def __init__(self, instructions):
         self.instructions = instructions
